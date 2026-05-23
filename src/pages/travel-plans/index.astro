@@ -1,0 +1,39 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CTASection from "@components/CTASection.astro";
+import WhatsAppLink from "@components/WhatsAppLink.astro";
+import { planningItems } from "@data/content";
+---
+
+<BaseLayout title="Travel Plans | Your Mali Guides" description="Learn what to send Djibril Kassogue on WhatsApp to plan a custom Mali or West Africa trip.">
+  <section class="section-pad bg-cream">
+    <div class="container-site">
+      <p class="eyebrow">Travel plans</p>
+      <h1 class="display-title mt-4 max-w-4xl text-5xl text-indigo-deep md:text-7xl">Send the right details, get a better route.</h1>
+      <p class="mt-6 max-w-3xl text-xl leading-9 text-slate-700">The best first message is simple: dates, group size, interests, language, and places you want to visit.</p>
+      <div class="mt-8"><WhatsAppLink label="Start on WhatsApp" /></div>
+    </div>
+  </section>
+  <section class="section-pad bg-white">
+    <div class="container-site grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="font-serif text-4xl font-extrabold text-indigo-deep">What to send Djibril</h2>
+        <div class="mt-6 grid gap-3">
+          {planningItems.map((item) => <p class="rounded-md bg-cream px-4 py-3 font-semibold text-slate-800">{item}</p>)}
+        </div>
+      </div>
+      <div class="rounded-lg bg-indigo-deep p-8 text-white">
+        <h2 class="font-serif text-4xl font-extrabold">Suggested message</h2>
+        <p class="mt-5 rounded-lg bg-white/10 p-5 leading-8 text-white/86">Hello Djibril, I would like to visit Mali. My dates are ____. We are ____ travellers. We are interested in ____. Can you help with a route and guide services?</p>
+        <h3 class="mt-8 font-serif text-3xl font-extrabold">Planning timeline</h3>
+        <ol class="mt-4 grid gap-3 text-white/78">
+          <li>1. First WhatsApp message</li>
+          <li>2. Route discussion</li>
+          <li>3. Logistics and feasibility</li>
+          <li>4. Confirmation</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <CTASection title="Routes are planned safety-first." text="Djibril can advise on practical route planning, transport, timing, and safety considerations." />
+</BaseLayout>

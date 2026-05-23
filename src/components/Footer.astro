@@ -1,0 +1,36 @@
+---
+import WhatsAppLink from "./WhatsAppLink.astro";
+import { site } from "@config/site";
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-charcoal text-white">
+  <div class="container-site grid gap-10 py-14 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+    <div>
+      <p class="font-serif text-2xl font-extrabold">Your Mali Guides</p>
+      <p class="mt-4 max-w-md leading-7 text-white/72">
+        Djibril Kassogue is an official local guide for custom trips in Mali and selected West Africa routes.
+      </p>
+      <div class="mt-6">
+        <WhatsAppLink label="WhatsApp Djibril" />
+      </div>
+    </div>
+    <div>
+      <p class="font-bold text-sahel-sand">Explore</p>
+      <div class="mt-4 grid gap-3 text-white/72">
+        {site.mainNav.map((item) => <a class="hover:text-white" href={item.href}>{item.label}</a>)}
+      </div>
+    </div>
+    <div>
+      <p class="font-bold text-sahel-sand">Contact</p>
+      <div class="mt-4 grid gap-3 text-white/72">
+        <a class="hover:text-white" href={site.whatsappUrl} target="_blank" rel="noopener">WhatsApp: +{site.whatsappNumber}</a>
+        <a class="hover:text-white" href={site.facebookUrl} target="_blank" rel="noopener">Facebook: Djibril Kassogue</a>
+      </div>
+      <p class="mt-6 text-sm leading-6 text-white/55">Routes depend on current local conditions, border rules, visas, transport, and practical feasibility.</p>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-5">
+    <div class="container-site text-sm text-white/55">Copyright {year} Your Mali Guides. Mali and West Africa private guide services.</div>
+  </div>
+</footer>

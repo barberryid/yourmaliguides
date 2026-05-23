@@ -1,0 +1,36 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import TourCard from "@components/TourCard.astro";
+import CTASection from "@components/CTASection.astro";
+import { tours } from "@data/content";
+---
+
+<BaseLayout title="Mali Tours with a Local Guide | Your Mali Guides" description="Plan Bamako, Djenne, Mopti, Dogon Country, Timbuktu, and custom Mali routes with Djibril Kassogue.">
+  <section class="section-pad bg-cream">
+    <div class="container-site">
+      <SectionHeading eyebrow="Mali tours" title="Mali routes with a guide who understands what is realistic." text="These are starting points for private trips. Routes depend on current conditions, safety advice, timing, transport, and local feasibility." />
+      <div class="mt-10 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+        {tours.slice(0, 6).map((tour) => <TourCard tour={tour} />)}
+      </div>
+    </div>
+  </section>
+  <section class="section-pad bg-white">
+    <div class="container-site grid gap-5">
+      {[
+        ["bamako", "Bamako", "Markets, culture, music, food, city orientation, museums, neighbourhood life, and arrival logistics."],
+        ["djenne-mopti", "Djenne and Mopti", "Historic mud architecture, river culture, local life, and practical route planning through central Mali."],
+        ["dogon", "Dogon Country", "Villages, cliffs, architecture, and cultural interpretation when current local conditions make the route feasible."],
+        ["timbuktu", "Timbuktu", "Historic city, manuscripts, desert heritage, and northern travel only when conditions and access are realistic."],
+        ["custom", "Custom Mali Route", "A route built around your dates, interests, budget, language, and the practical support you need."]
+      ].map(([id, title, text]) => (
+        <article id={id} class="scroll-mt-28 rounded-lg border border-slate-900/10 bg-cream p-6 shadow-sm">
+          <h2 class="font-serif text-3xl font-extrabold text-indigo-deep">{title}</h2>
+          <p class="mt-3 leading-8 text-slate-700">{text}</p>
+          <p class="mt-3 font-semibold text-clay">Routes depend on current conditions, safety advice, timing, and local feasibility.</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <CTASection title="Ask Djibril about a Mali route." text="Send the places you hope to visit and he can help shape a safe, realistic itinerary." />
+</BaseLayout>

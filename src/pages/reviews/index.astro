@@ -1,0 +1,31 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CTASection from "@components/CTASection.astro";
+import WhatsAppLink from "@components/WhatsAppLink.astro";
+import { images } from "@data/images";
+---
+
+<BaseLayout title="Reviews and References | Your Mali Guides" description="Ask Djibril Kassogue for recent traveller references and feedback for Mali and West Africa guide services.">
+  <section class="section-pad bg-cream">
+    <div class="container-site grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <div>
+        <p class="eyebrow">Reviews</p>
+        <h1 class="display-title mt-4 text-5xl text-indigo-deep md:text-7xl">References available on request.</h1>
+        <p class="mt-6 text-xl leading-9 text-slate-700">The previous site says Djibril is recommended by serious travellers and tourists. No private review text has been invented here, and public names are not added unless already confirmed.</p>
+        <div class="mt-7"><WhatsAppLink label="Ask for recent references" /></div>
+      </div>
+      <img src={images.about} alt="Traveller with Djibril Kassogue in Mali" class="h-96 w-full rounded-lg object-cover shadow-xl" />
+    </div>
+  </section>
+  <section class="section-pad bg-white">
+    <div class="container-site grid gap-6 md:grid-cols-3">
+      {["Ask for recent references", "Share your route idea", "Confirm practical details"].map((title) => (
+        <article class="rounded-lg border border-slate-900/10 bg-cream p-6">
+          <h2 class="font-serif text-3xl font-extrabold text-indigo-deep">{title}</h2>
+          <p class="mt-3 leading-7 text-slate-700">Message Djibril directly on WhatsApp and ask for current feedback from travellers with similar plans.</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <CTASection title="Want traveller references?" text="Ask Djibril on WhatsApp for recent references before you confirm your route." />
+</BaseLayout>

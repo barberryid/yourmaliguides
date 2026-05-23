@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CTASection from "@components/CTASection.astro";
+import { planningItems } from "@data/content";
+---
+
+<BaseLayout title="Custom Trip Planning | Your Mali Guides" description="Plan a custom private trip in Mali or West Africa with Djibril Kassogue.">
+  <section class="section-pad bg-cream">
+    <div class="container-site max-w-4xl">
+      <p class="eyebrow">Custom trip planning</p>
+      <h1 class="display-title mt-4 text-5xl text-indigo-deep md:text-7xl">A private route built around your dates and interests.</h1>
+      <p class="mt-6 text-xl leading-9 text-slate-700">Tell Djibril what you hope to see, how long you have, and what kind of support you need. He can help design a route around local feasibility and current conditions.</p>
+    </div>
+  </section>
+  <section class="section-pad bg-white">
+    <div class="container-site grid gap-4 md:grid-cols-2">
+      {planningItems.map((item) => <p class="rounded-lg bg-cream p-5 font-bold text-indigo-deep shadow-sm">{item}</p>)}
+    </div>
+  </section>
+  <CTASection title="Start your custom plan on WhatsApp." text="Send your dates, group size, preferred language, and the places you want to visit." />
+</BaseLayout>

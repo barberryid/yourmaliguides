@@ -1,0 +1,46 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CTASection from "@components/CTASection.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import { images } from "@data/images";
+import { features } from "@data/content";
+---
+
+<BaseLayout title="About Djibril Kassogue | Your Mali Guides" description="Meet Djibril Kassogue, an official registered guide in Mali for custom private trips and West Africa route planning.">
+  <section class="section-pad bg-cream">
+    <div class="container-site grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <div>
+        <p class="eyebrow">About Djibril</p>
+        <h1 class="display-title mt-4 text-balance text-5xl text-indigo-deep md:text-7xl">Meet Djibril Kassogue</h1>
+        <p class="mt-6 text-xl leading-9 text-slate-700">Official registered guide in Mali, helping travellers plan cultural journeys, private routes, and selected West Africa trips with local knowledge and practical care.</p>
+      </div>
+      <div class="image-card">
+        <img src={images.portrait} alt="Portrait of Djibril Kassogue" class="h-[540px] w-full object-cover" />
+      </div>
+    </div>
+  </section>
+  <section class="section-pad bg-white">
+    <div class="container-site grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <img src={images.about} alt="Djibril Kassogue with a traveller in Mali" class="h-full min-h-96 rounded-lg object-cover shadow-xl" />
+      <div>
+        <SectionHeading eyebrow="Guide story" title="A local guide for deeper, easier travel." />
+        <div class="mt-6 space-y-5 text-lg leading-8 text-slate-700">
+          <p>Djibril helps visitors understand Mali through real local context: people, routes, markets, architecture, music, history, food, and daily life. He can support custom itineraries based on the traveller's interests rather than forcing every visitor into the same plan.</p>
+          <p>His work includes route planning, transport coordination, cultural interpretation, negotiation help, local contacts, and safety-aware logistics. Travellers can share the places they hope to visit, then Djibril can advise what is practical and responsible under current conditions.</p>
+          <p class="rounded-lg border-l-4 border-clay bg-cream p-5 font-semibold text-indigo-deep">Djibril peut organiser des circuits personnalises au Mali et en Afrique de l'Ouest. Envoyez vos dates, le nombre de voyageurs et les lieux que vous souhaitez visiter par WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-pad pattern">
+    <div class="container-site grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {features.slice(0, 4).map((feature) => (
+        <article class="rounded-lg bg-white/90 p-6 shadow-lg">
+          <h2 class="font-serif text-2xl font-extrabold text-indigo-deep">{feature.title}</h2>
+          <p class="mt-3 leading-7 text-slate-700">{feature.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <CTASection title="Message Djibril before you plan." text="Share your dates, number of travellers, preferred language, and the places you want to visit." />
+</BaseLayout>

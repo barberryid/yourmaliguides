@@ -1,0 +1,19 @@
+---
+import WhatsAppIcon from "./WhatsAppIcon.astro";
+import { site } from "@config/site";
+
+const {
+  label = "WhatsApp Djibril",
+  className = "btn btn-whatsapp",
+  subject = "",
+} = Astro.props;
+
+const href = subject
+  ? `${site.whatsappUrl}?text=${encodeURIComponent(subject)}`
+  : site.whatsappUrl;
+---
+
+<a class={className} href={href} target="_blank" rel="noopener" aria-label="Contact Djibril Kassogue on WhatsApp">
+  <WhatsAppIcon />
+  <span>{label}</span>
+</a>

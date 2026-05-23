@@ -1,0 +1,35 @@
+---
+import WhatsAppIcon from "./WhatsAppIcon.astro";
+import { site } from "@config/site";
+---
+
+<header class="sticky top-0 z-40 border-b border-slate-900/10 bg-cream/92 backdrop-blur-xl">
+  <nav class="container-site flex min-h-20 items-center justify-between gap-4" aria-label="Main navigation">
+    <a href="/" class="flex items-center gap-3 font-serif text-xl font-extrabold text-indigo-deep">
+      <span class="grid h-11 w-11 place-items-center rounded-full bg-indigo-deep text-sm text-sahel-sand">YMG</span>
+      <span class="hidden sm:inline">Your Mali Guides</span>
+    </a>
+    <div class="hidden items-center gap-6 lg:flex">
+      {site.mainNav.map((item) => (
+        <a href={item.href} class="text-sm font-bold text-slate-700 hover:text-clay">{item.label}</a>
+      ))}
+    </div>
+    <div class="flex items-center gap-2">
+      <a href={site.whatsappUrl} target="_blank" rel="noopener" class="btn btn-whatsapp min-h-11 px-4 py-2 text-sm" aria-label="Contact Djibril Kassogue on WhatsApp">
+        <WhatsAppIcon />
+        <span class="hidden sm:inline">WhatsApp Djibril</span>
+        <span class="sm:hidden">WhatsApp</span>
+      </a>
+      <button class="grid h-11 w-11 place-items-center rounded-full border border-slate-900/15 text-indigo-deep lg:hidden" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span class="h-0.5 w-5 bg-current shadow-[0_6px_0_current,0_-6px_0_current]"></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden border-t border-slate-900/10 bg-cream lg:hidden" data-mobile-menu>
+    <div class="container-site grid gap-1 py-4">
+      {site.mainNav.map((item) => (
+        <a href={item.href} class="rounded-md px-3 py-3 font-bold text-slate-800 hover:bg-white">{item.label}</a>
+      ))}
+    </div>
+  </div>
+</header>

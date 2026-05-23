@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CTASection from "@components/CTASection.astro";
+import { images } from "@data/images";
+---
+
+<BaseLayout title="Malian Cloth and Textiles | Your Mali Guides" description="Ask Djibril Kassogue about Malian cloth, bogolan-inspired textiles, markets, artisans, and respectful local shopping.">
+  <section class="section-pad pattern">
+    <div class="container-site grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <div>
+        <p class="eyebrow">Cloth and textiles</p>
+        <h1 class="display-title mt-4 text-5xl text-indigo-deep md:text-7xl">Malian textiles, markets, and craft traditions.</h1>
+        <p class="mt-6 text-xl leading-9 text-slate-700">Malian cloth is part of the country's visual language: bogolan-inspired patterns, indigo traditions, market stalls, artisans, and everyday clothing.</p>
+      </div>
+      <img src={images.textiles} alt="Malian textile pattern with bogolan motifs" class="h-[520px] w-full rounded-lg object-cover shadow-xl" />
+    </div>
+  </section>
+  <section class="section-pad bg-white">
+    <div class="container-site grid gap-5 md:grid-cols-3">
+      {images.gallery.slice(4, 11).map((image) => <img src={image.src} alt={image.alt} loading="lazy" class="h-80 w-full rounded-lg object-cover shadow-md" />)}
+    </div>
+    <div class="container-site mt-10 max-w-3xl text-lg leading-8 text-slate-700">
+      <p>Travellers can ask Djibril about local cloth, markets, artisans, and purchases when those visits fit the itinerary. Specific products and prices are not promised here because they depend on current availability and negotiation.</p>
+    </div>
+  </section>
+  <CTASection title="Ask about Malian cloth and markets." text="Message Djibril on WhatsApp if textiles, artisans, or markets are part of your trip interests." />
+</BaseLayout>

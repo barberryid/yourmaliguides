@@ -1,0 +1,23 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import CTASection from "@components/CTASection.astro";
+import { images } from "@data/images";
+---
+
+<BaseLayout title="Photo Gallery | Your Mali Guides" description="See Mali travel photos, local culture, textiles, community visits, landscapes, and guiding moments with Djibril Kassogue.">
+  <section class="section-pad bg-cream">
+    <div class="container-site">
+      <SectionHeading eyebrow="Photo gallery" title="Mali in real moments." text="A curated gallery from the existing Your Mali Guides image collection: landscapes, people, textiles, route moments, culture, and community connections." />
+      <img src={images.hero} alt="Niger River and travel route in Mali" class="mt-10 h-[460px] w-full rounded-lg object-cover shadow-xl" />
+    </div>
+  </section>
+  <section class="section-pad bg-white">
+    <div class="container-site columns-1 gap-5 sm:columns-2 lg:columns-3">
+      {images.gallery.map((image) => (
+        <img src={image.src} alt={image.alt} loading="lazy" class="mb-5 w-full break-inside-avoid rounded-lg object-cover shadow-md" />
+      ))}
+    </div>
+  </section>
+  <CTASection title="Want to see these places with a local guide?" text="Message Djibril on WhatsApp and share the places, culture, or routes that interest you most." />
+</BaseLayout>

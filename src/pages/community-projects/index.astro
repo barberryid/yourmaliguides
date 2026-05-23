@@ -1,0 +1,29 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CTASection from "@components/CTASection.astro";
+import { images } from "@data/images";
+---
+
+<BaseLayout title="Community Projects | Your Mali Guides" description="Learn how travel with Djibril Kassogue can connect respectfully with local communities and current community projects in Mali.">
+  <section class="section-pad bg-cream">
+    <div class="container-site grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <img src={images.community} alt="Children and community visit in Mali" class="h-[520px] w-full rounded-lg object-cover shadow-xl" />
+      <div>
+        <p class="eyebrow">Community projects</p>
+        <h1 class="display-title mt-4 text-5xl text-indigo-deep md:text-7xl">Travel connected to local people.</h1>
+        <p class="mt-6 text-xl leading-9 text-slate-700">Your trip can support local people, local knowledge, and community connections. Ask Djibril about current community projects or ways to travel respectfully.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section-pad bg-white">
+    <div class="container-site grid gap-6 md:grid-cols-3">
+      {["Respectful visits", "Local knowledge", "Current projects"].map((title) => (
+        <article class="rounded-lg bg-cream p-6 shadow-sm">
+          <h2 class="font-serif text-3xl font-extrabold text-indigo-deep">{title}</h2>
+          <p class="mt-3 leading-7 text-slate-700">Djibril can explain what is appropriate, useful, and currently possible without making fixed donation claims.</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <CTASection title="Ask about current community connections." text="Message Djibril to learn what is possible during your travel dates." />
+</BaseLayout>
