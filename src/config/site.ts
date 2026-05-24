@@ -4,10 +4,11 @@ export const site = {
   whatsappNumber: "22374482693",
   whatsappUrl: "https://wa.me/22374482693",
   facebookUrl: "https://www.facebook.com/djibril.kassogue",
+  instagramUrl: "https://www.instagram.com/djibril_kassogue/",
   email: "",
-  baseUrl: "https://www.yourmaliguides.com",
+  baseUrl: "https://yourmaliguides.com",
   defaultMetaDescription:
-    "Plan a custom trip in Mali with Djibril Kassogue, an official local guide for Mali and West Africa. Contact Djibril directly on WhatsApp.",
+    "Plan a private Mali trip with Djibril Kassogue, a local guide for Bamako, Djenné, Dogon Country, Timbuktu and cultural travel. Contact by WhatsApp.",
   mainNav: [
     { label: "Home", href: "/" },
     { label: "About", href: "/about/" },

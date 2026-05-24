@@ -6,13 +6,48 @@ import { site } from "@config/site";
 import "@styles/global.css";
 
 const {
-  title = "Your Mali Guides | Djibril Kassogue | Official Guide in Mali",
+  title = "Private Mali Guide & Cultural Tours | Your Mali Guides",
   description = site.defaultMetaDescription,
-  image = "/images/mali-river-hero.webp",
+  image = "/images/your-mali-guides-og.jpg",
   canonical = Astro.url.pathname,
+  robots = "index, follow",
+  additionalSchema,
 } = Astro.props;
 
 const canonicalUrl = new URL(canonical, site.baseUrl).toString();
+const ogImageUrl = new URL(image, site.baseUrl).toString();
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.siteName,
+  url: site.baseUrl + "/",
+};
+
+const travelAgencySchema = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  name: site.siteName,
+  url: site.baseUrl + "/",
+  description:
+    "Private Mali guiding and cultural travel planning with local guide Djibril Kassogue.",
+  areaServed: {
+    "@type": "Country",
+    name: "Mali",
+  },
+  founder: {
+    "@type": "Person",
+    name: site.guideName,
+    jobTitle: "Local Mali Guide",
+    url: site.baseUrl + "/about/",
+  },
+  sameAs: [site.instagramUrl, site.facebookUrl],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    availableLanguage: ["English", "French"],
+  },
+};
 ---
 
 <!doctype html>
@@ -22,20 +57,28 @@ const canonicalUrl = new URL(canonical, site.baseUrl).toString();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
     <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:site_name" content={site.siteName} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={new URL(image, site.baseUrl).toString()} />
+    <meta property="og:image" content={ogImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(image, site.baseUrl).toString()} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(travelAgencySchema)} />
+    {additionalSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(additionalSchema)} />}
   </head>
   <body>
     <Header />
@@ -44,9 +87,15 @@ const canonicalUrl = new URL(canonical, site.baseUrl).toString();
     </main>
     <Footer />
     <div class="fixed bottom-4 right-4 z-50">
-      <a href={site.whatsappUrl} target="_blank" rel="noopener" aria-label="Contact Djibril Kassogue on WhatsApp" class="btn btn-whatsapp min-h-14 min-w-14 px-4 shadow-2xl">
+      <a
+        href={site.whatsappUrl}
+        target="_blank"
+        rel="noopener"
+        aria-label="Message Djibril Kassogue on WhatsApp"
+        class="btn btn-whatsapp min-h-14 min-w-14 px-4 shadow-2xl"
+      >
         <WhatsAppIcon class="h-7 w-7" />
-        <span class="hidden sm:inline">Chat with Djibril</span>
+        <span class="hidden sm:inline">Message Djibril</span>
       </a>
     </div>
     <script>
