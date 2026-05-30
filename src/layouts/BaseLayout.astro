@@ -16,6 +16,7 @@ const {
 
 const canonicalUrl = new URL(canonical, site.baseUrl).toString();
 const ogImageUrl = new URL(image, site.baseUrl).toString();
+const whatsappHref = `${site.whatsappUrl}?text=${encodeURIComponent(site.whatsappMessage)}`;
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -81,21 +82,25 @@ const travelAgencySchema = {
     {additionalSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(additionalSchema)} />}
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <Header />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer />
-    <div class="fixed bottom-4 right-4 z-50">
+    <div class="mobile-whatsapp-cta">
       <a
-        href={site.whatsappUrl}
+        href={whatsappHref}
         target="_blank"
         rel="noopener"
-        aria-label="Message Djibril Kassogue on WhatsApp"
-        class="btn btn-whatsapp min-h-14 min-w-14 px-4 shadow-2xl"
+        aria-label="Message Djibril on WhatsApp with your dates, group size, and route idea"
+        class="mobile-whatsapp-link"
       >
         <WhatsAppIcon class="h-7 w-7" />
-        <span class="hidden sm:inline">Message Djibril</span>
+        <span>
+          <strong>Message Djibril on WhatsApp</strong>
+          <small>Send your dates, group size, and route idea.</small>
+        </span>
       </a>
     </div>
     <script>

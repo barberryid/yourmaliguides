@@ -7,30 +7,48 @@ import WhatsAppLink from "@components/WhatsAppLink.astro";
 import { images } from "@data/images";
 import { features, tours, trustBadges } from "@data/content";
 
+const whatToSend = [
+  "Your travel dates",
+  "Number of travellers",
+  "Arrival city",
+  "Places you hope to visit",
+  "Preferred language",
+  "Budget level",
+  "Travel pace: relaxed, standard, or ambitious",
+  "Any safety concerns or special needs",
+];
+
+const safetyItems = [
+  "Current local advice",
+  "Routes assessed case by case",
+  "Transport and timing checked",
+  "Alternative plans when needed",
+];
+
 const faqs = [
   {
     q: "Can I contact Djibril directly on WhatsApp?",
-    a: "Yes. Use the WhatsApp button on the website to message Djibril directly about your travel dates, route ideas, and the type of Mali trip you want to plan. WhatsApp is the fastest way to reach him.",
+    a: "Yes. WhatsApp is the fastest way to reach Djibril. Send your dates, group size, preferred language, and the places you hope to visit.",
   },
   {
     q: "Can Djibril help plan a custom Mali itinerary?",
-    a: "Yes. Share your travel dates, number of travellers, preferred language, and the places you want to visit. Djibril can advise what is practical under current conditions and help shape a realistic private itinerary.",
+    a: "Yes. Djibril can advise what is practical under current conditions and help shape a realistic private itinerary around your interests.",
   },
   {
     q: "Which places in Mali can I visit with a local guide?",
-    a: "Djibril can help plan visits to Bamako, Djenné, Mopti, Dogon Country, and desert routes including Timbuktu when conditions allow. Routes are always assessed against current local feasibility and safety.",
+    a: "Djibril can help plan Bamako visits, cultural routes, heritage towns, and selected longer routes when current local conditions make them realistic.",
   },
   {
     q: "Can I arrange a Bamako city tour?",
-    a: "Yes. Djibril can help with Bamako city visits covering markets, music, food, museums, and neighbourhood life. Bamako is a practical starting point for most Mali trips and can work well as a standalone visit.",
+    a: "Yes. Bamako can work well as a first step or standalone visit, with markets, music, food, museums, neighbourhood life, and practical orientation.",
   },
   {
     q: "Can Djibril help with transport and local logistics?",
-    a: "Yes. Djibril can help with route planning, transport coordination, local contacts, and safety-aware logistics to reduce the difficulty of independent travel in Mali.",
+    a: "Yes. His support can include route planning, transport coordination, local contacts, cultural interpretation, and safety-aware logistics.",
   },
   {
     q: "What information should I send before booking?",
-    a: "Send your travel dates, number of travellers, arrival city, places you want to visit, interests and travel pace, preferred language, and your budget level. Djibril will respond with a realistic plan and current conditions advice.",
+    a: "Send your travel dates, number of travellers, arrival city, places you want to visit, preferred language, budget level, travel pace, and any safety or timing concerns.",
   },
 ];
 
@@ -50,7 +68,7 @@ const faqSchema = {
 
 <BaseLayout
   title="Private Mali Guide & Cultural Tours | Your Mali Guides"
-  description="Plan a private Mali trip with Djibril Kassogue, a local guide for Bamako, Djenné, Dogon Country, Timbuktu and cultural travel. Contact by WhatsApp."
+  description="Plan a private Mali trip with Djibril Kassogue, an official local guide for Bamako visits, cultural tours, heritage routes, transport help, and safety-aware travel planning."
   image="/images/your-mali-guides-og.jpg"
   additionalSchema={faqSchema}
 >
@@ -58,31 +76,32 @@ const faqSchema = {
     <img
       src={images.hero}
       alt="Niger River landscape in Mali, seen on a private guided tour"
+      width="1600"
+      height="1000"
       fetchpriority="high"
       decoding="async"
-      class="absolute inset-0 h-full w-full object-cover opacity-70"
+      class="absolute inset-0 h-full w-full object-cover opacity-72"
     />
-    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,20,45,.88),rgba(12,20,45,.52),rgba(12,20,45,.18))]"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,20,45,.9),rgba(12,20,45,.62),rgba(12,20,45,.28))]"></div>
     <div class="container-site relative grid min-h-[86vh] content-center py-20">
       <div class="max-w-4xl">
         <p class="eyebrow text-sahel-sand">Local private guide in Mali</p>
         <h1 class="display-title mt-5 text-balance text-5xl md:text-7xl">
           Private Mali Guide for Cultural Tours and Custom Trips
         </h1>
-        <p class="mt-6 max-w-3xl text-xl leading-9 text-white/86">
-          Explore Mali with Djibril Kassogue — a local guide helping travellers plan private cultural trips,
-          city visits, heritage routes, and practical travel logistics across Mali and West Africa.
+        <p class="mt-6 max-w-3xl text-xl leading-9 text-white/88">
+          Plan a realistic private trip in Mali with Djibril Kassogue, an official local guide helping travellers with Bamako visits, heritage routes, cultural interpretation, transport, logistics, and safety-aware planning.
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
           <WhatsAppLink label="Message Djibril on WhatsApp" className="btn btn-whatsapp" />
-          <a href="/tours/" class="btn btn-outline border-white/25 bg-white/12 text-white hover:bg-white/20"
-            >Explore Mali Tours</a
-          >
+          <a href="/tours/" class="btn btn-outline border-white/25 bg-white/12 text-white hover:bg-white/20">
+            See Mali tour ideas
+          </a>
         </div>
-        <p class="mt-4 text-sm font-semibold text-sahel-sand">
-          Fastest response: send your dates, number of travellers, and places you want to visit.
+        <p class="mt-4 max-w-2xl text-sm font-semibold leading-6 text-sahel-sand">
+          Fastest reply: send your travel dates, number of travellers, preferred language, and the places you hope to visit.
         </p>
-        <div class="mt-10 flex flex-wrap gap-3">
+        <div class="mt-10 flex flex-wrap gap-3" aria-label="Trust signals">
           {trustBadges.map((badge) => (
             <span class="rounded-full border border-white/20 bg-white/12 px-4 py-2 text-sm font-bold backdrop-blur">
               {badge}
@@ -94,38 +113,52 @@ const faqSchema = {
   </section>
 
   <section class="section-pad bg-cream">
-    <div class="container-site grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-      <div class="image-card">
-        <img
-          src={images.portrait}
-          alt="Djibril Kassogue, local Mali guide and trip planner"
-          loading="lazy"
-          class="h-[520px] w-full object-cover"
-        />
+    <div class="container-site">
+      <SectionHeading
+        eyebrow="First message"
+        title="What to send in your first WhatsApp message"
+        text="You do not need a complete itinerary. Send a few practical details and Djibril can advise what is realistic."
+      />
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {whatToSend.map((item) => (
+          <div class="rounded-lg border border-slate-900/10 bg-white p-5 font-bold text-indigo-deep shadow-sm">
+            {item}
+          </div>
+        ))}
       </div>
-      <div>
-        <SectionHeading
-          eyebrow="Meet your guide"
-          title="Local knowledge changes the whole trip."
-          text="Djibril Kassogue helps travellers explore Mali with practical confidence: route planning, local interpretation, transport support, cultural access, negotiation help, and safety-aware logistics."
-        />
-        <p class="mt-6 leading-8 text-slate-700">
-          Whether you want a short Bamako introduction, a custom Mali route, or selected West Africa planning,
-          Djibril starts with your dates, interests, group size, and what is realistic under current conditions.
-        </p>
-        <div class="mt-7 flex flex-wrap gap-3">
-          <a href="/about/" class="btn btn-indigo">About Djibril</a>
-          <a href="/reviews/" class="btn btn-outline">See Reviews</a>
-        </div>
+      <div class="mt-8">
+        <WhatsAppLink label="Message Djibril with these details" />
       </div>
     </div>
   </section>
 
   <section class="section-pad bg-white">
+    <div class="container-site grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <div>
+        <SectionHeading
+          eyebrow="Safety-aware planning"
+          title="Safety and feasibility come first"
+          text="Mali travel can change quickly. Djibril does not promise routes blindly. He will advise what is realistic based on current local conditions, transport, timing, border rules, and practical safety considerations."
+        />
+        <div class="mt-7">
+          <WhatsAppLink label="Ask what is realistic for your dates" />
+        </div>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {safetyItems.map((item) => (
+          <div class="rounded-lg border-l-4 border-clay bg-cream p-6 font-bold text-indigo-deep shadow-sm">
+            {item}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad bg-cream">
     <div class="container-site">
       <SectionHeading
         eyebrow="Featured routes"
-        title="Private Mali trips, planned around real conditions."
+        title="Private Mali trips, planned around real conditions"
         text="Choose a starting idea, then message Djibril on WhatsApp to shape the route around your dates, budget, pace, and safety considerations."
       />
       <div class="mt-10 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
@@ -138,7 +171,8 @@ const faqSchema = {
     <div class="container-site">
       <SectionHeading
         eyebrow="Why travel with Djibril"
-        title="Trust, context, and practical help from the ground."
+        title="Trust, context, and practical help from the ground"
+        text="Local guiding is not only about showing places. It is also cultural context, route judgement, practical timing, and help when plans need to adapt."
         align="center"
       />
       <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -154,84 +188,117 @@ const faqSchema = {
     </div>
   </section>
 
+  <section class="section-pad bg-white">
+    <div class="container-site grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <div class="image-card">
+        <img
+          src={images.portrait}
+          alt="Djibril Kassogue, official local Mali guide and trip planner"
+          width="900"
+          height="1125"
+          loading="lazy"
+          class="h-[520px] w-full object-cover"
+        />
+      </div>
+      <div>
+        <SectionHeading
+          eyebrow="How planning works"
+          title="Three simple steps to a custom trip"
+          text="No complicated form. Send a clear WhatsApp message and Djibril can help turn your interests into a realistic itinerary."
+        />
+        <div class="mt-7 grid gap-4">
+          {
+            [
+              "Send your dates, group size, language preference, and places of interest",
+              "Djibril checks timing, transport, current feasibility, and route options",
+              "You agree a private plan that fits your pace and practical conditions",
+            ].map((step, index) => (
+              <div class="flex gap-4 rounded-lg bg-cream p-5 shadow-sm">
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-clay font-bold text-white">
+                  {index + 1}
+                </span>
+                <p class="self-center text-lg font-bold text-indigo-deep">{step}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section-pad bg-cream">
-    <div class="container-site grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-      <SectionHeading
-        eyebrow="How planning works"
-        title="Three simple steps to a custom trip."
-        text="No complicated form. Send a clear WhatsApp message and Djibril can help turn your interests into a safe and realistic itinerary."
-      />
-      <div class="grid gap-4">
+    <div class="container-site">
+      <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <SectionHeading
+          eyebrow="Photo story"
+          title="A real look at Mali, people, routes, and culture"
+          text="The gallery is here to build practical trust: guiding moments, city life, river travel, culture, textiles, and community visits."
+        />
+        <a href="/photos/" class="btn btn-outline self-start md:self-auto">View photo gallery</a>
+      </div>
+      <div class="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
         {
-          [
-            "Send a WhatsApp message with your dates and destinations",
-            "Share group size, language preference, and travel interests",
-            "Djibril helps design a realistic private Mali route",
-          ].map((step, index) => (
-            <div class="flex gap-4 rounded-lg bg-white p-5 shadow-md">
-              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-clay font-bold text-white">
-                {index + 1}
-              </span>
-              <p class="self-center text-lg font-bold text-indigo-deep">{step}</p>
-            </div>
+          images.gallery.slice(0, 8).map((image, index) => (
+            <figure
+              class:list={[
+                "overflow-hidden rounded-lg bg-white shadow-md",
+                index === 0 && "md:col-span-2 md:row-span-2",
+              ]}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                width="720"
+                height="540"
+                loading="lazy"
+                class:list={[
+                  "h-56 w-full object-cover",
+                  index === 0 && "md:h-full",
+                ]}
+              />
+            </figure>
           ))
         }
+      </div>
+      <div class="mt-8">
+        <WhatsAppLink label="Ask Djibril for recent traveller references" />
       </div>
     </div>
   </section>
 
   <section class="section-pad bg-white">
-    <div class="container-site">
-      <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-        <SectionHeading eyebrow="Photo story" title="A real look at Mali, people, routes, and culture." />
-        <a href="/photos/" class="btn btn-outline self-start md:self-auto">View Gallery</a>
-      </div>
-      <div class="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-        {
-          images.gallery.slice(0, 8).map((image, index) => (
-            <img
-              src={image.src}
-              alt={image.alt}
-              loading="lazy"
-              class:list={[
-                "h-56 w-full rounded-lg object-cover shadow-md",
-                index === 0 && "md:col-span-2 md:row-span-2 md:h-full",
-              ]}
-            />
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="section-pad bg-cream">
     <div class="container-site grid gap-8 md:grid-cols-2">
       <article class="rounded-lg bg-indigo-deep p-8 text-white shadow-xl">
         <p class="eyebrow text-sahel-sand">References</p>
-        <h2 class="display-title mt-3 text-4xl">Recommended by experienced travellers.</h2>
+        <h2 class="display-title mt-3 text-4xl">Traveller references available</h2>
         <p class="mt-5 leading-8 text-white/78">
-          Ask Djibril for recent references and traveller feedback before you plan. Public review text has not
-          been invented here.
+          Djibril can share recent references and feedback from experienced travellers on request. No fake review text is published here.
         </p>
-        <a href="/reviews/" class="btn btn-whatsapp mt-7">Ask for references</a>
+        <div class="mt-6 grid gap-3 text-sm font-bold text-white/90 sm:grid-cols-2">
+          {["References on request", "Experienced traveller recommendations", "Local guide verification", "Direct WhatsApp contact"].map((item) => (
+            <span class="rounded-full bg-white/10 px-4 py-2">{item}</span>
+          ))}
+        </div>
+        <div class="mt-7">
+          <WhatsAppLink label="Ask for recent references" />
+        </div>
       </article>
-      <article class="rounded-lg bg-white p-8 shadow-xl">
+      <article class="rounded-lg bg-cream p-8 shadow-xl">
         <p class="eyebrow">Community</p>
-        <h2 class="display-title mt-3 text-4xl text-indigo-deep">Travel connected to local life.</h2>
+        <h2 class="display-title mt-3 text-4xl text-indigo-deep">Community and respectful travel</h2>
         <p class="mt-5 leading-8 text-slate-700">
-          Djibril can help travellers understand local communities, visit respectfully, and ask about current
-          community projects or ways to support local people.
+          Djibril can help travellers understand local communities, visit respectfully, and ask what is appropriate, useful, and currently possible.
         </p>
-        <a href="/community-projects/" class="btn btn-indigo mt-7">Community Projects</a>
+        <a href="/community-projects/" class="btn btn-indigo mt-7">Community and local travel</a>
       </article>
     </div>
   </section>
 
-  <section class="section-pad bg-white" id="faq">
+  <section class="section-pad bg-cream" id="faq">
     <div class="container-site max-w-3xl">
       <SectionHeading
         eyebrow="Common questions"
-        title="Planning a private Mali trip with a local guide."
+        title="Planning a private Mali trip with a local guide"
       />
       <div class="mt-10 space-y-4">
         {

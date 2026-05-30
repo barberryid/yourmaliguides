@@ -2,21 +2,44 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SectionHeading from "@components/SectionHeading.astro";
 import CTASection from "@components/CTASection.astro";
+import WhatsAppLink from "@components/WhatsAppLink.astro";
 import { images } from "@data/images";
 ---
 
 <BaseLayout title="Photo Gallery | Your Mali Guides" description="See Mali travel photos, local culture, textiles, community visits, landscapes, and guiding moments with Djibril Kassogue.">
   <section class="section-pad bg-cream">
     <div class="container-site">
-      <SectionHeading eyebrow="Photo gallery" title="Mali in real moments." text="A curated gallery from the existing Your Mali Guides image collection: landscapes, people, textiles, route moments, culture, and community connections." />
-      <img src={images.hero} alt="Niger River and travel route in Mali" class="mt-10 h-[460px] w-full rounded-lg object-cover shadow-xl" />
+      <SectionHeading eyebrow="Photo gallery" title="Mali in real moments" text="A curated gallery from the existing Your Mali Guides image collection: guiding moments, Bamako and city life, Niger River travel, textiles, heritage routes, culture, and community connections." />
+      <img
+        src={images.hero}
+        alt="Niger River and travel route in Mali"
+        width="1600"
+        height="1000"
+        fetchpriority="high"
+        class="mt-10 h-[460px] w-full rounded-lg object-cover shadow-xl"
+      />
     </div>
   </section>
   <section class="section-pad bg-white">
-    <div class="container-site columns-1 gap-5 sm:columns-2 lg:columns-3">
-      {images.gallery.map((image) => (
-        <img src={image.src} alt={image.alt} loading="lazy" class="mb-5 w-full break-inside-avoid rounded-lg object-cover shadow-md" />
-      ))}
+    <div class="container-site">
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {images.gallery.map((image) => (
+          <figure class="overflow-hidden rounded-lg bg-cream shadow-md">
+            <img
+              src={image.src}
+              alt={image.alt}
+              width="720"
+              height="540"
+              loading="lazy"
+              class="aspect-[4/3] w-full object-cover"
+            />
+            <figcaption class="px-4 py-3 text-sm font-bold text-indigo-deep">{image.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="mt-10">
+        <WhatsAppLink label="Ask Djibril for recent traveller references" />
+      </div>
     </div>
   </section>
   <CTASection title="Want to see these places with a local guide?" text="Message Djibril on WhatsApp and share the places, culture, or routes that interest you most." />

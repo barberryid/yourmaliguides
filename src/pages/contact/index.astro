@@ -3,35 +3,64 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import WhatsAppLink from "@components/WhatsAppLink.astro";
 import WhatsAppIcon from "@components/WhatsAppIcon.astro";
 import { site } from "@config/site";
+
+const checklist = [
+  "Your dates",
+  "Number of travellers",
+  "Places you want to visit",
+  "Preferred language",
+  "Budget level",
+  "Any safety or timing concerns",
+];
 ---
 
-<BaseLayout title="Contact Djibril on WhatsApp | Your Mali Guides" description="Contact Djibril Kassogue directly on WhatsApp to plan your Mali or West Africa trip.">
+<BaseLayout
+  title="Contact Djibril Kassogue | Your Mali Guides"
+  description="Contact Djibril Kassogue on WhatsApp to plan a private Mali trip with practical route advice, transport help, and safety-aware planning."
+>
   <section class="section-pad bg-cream">
-    <div class="container-site">
+    <div class="container-site max-w-4xl">
       <p class="eyebrow">Contact</p>
       <h1 class="display-title mt-4 text-5xl text-indigo-deep md:text-7xl">Contact Djibril Kassogue</h1>
-      <p class="mt-6 max-w-3xl text-xl leading-9 text-slate-700">The fastest way to plan your Mali trip is to message Djibril directly on WhatsApp.</p>
+      <p class="mt-6 max-w-3xl text-xl leading-9 text-slate-700">
+        The fastest way to contact Djibril is WhatsApp. Send a few practical details and he can advise what is realistic for your dates.
+      </p>
+      <div class="mt-8">
+        <WhatsAppLink label="Message Djibril on WhatsApp" />
+      </div>
     </div>
   </section>
+
   <section class="section-pad bg-white">
-    <div class="container-site grid gap-8 lg:grid-cols-[1fr_0.85fr]">
+    <div class="container-site grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
       <article class="rounded-lg bg-[#25D366] p-8 text-[#062313] shadow-2xl">
         <WhatsAppIcon class="h-14 w-14" />
-        <h2 class="font-serif mt-5 text-4xl font-extrabold">Contact Djibril on WhatsApp</h2>
-        <p class="mt-4 text-lg leading-8">For the fastest reply, message Djibril directly on WhatsApp.</p>
+        <h2 class="font-serif mt-5 text-4xl font-extrabold">Message Djibril on WhatsApp</h2>
+        <p class="mt-4 text-lg leading-8">
+          Use the button below to open WhatsApp with a pre-filled message. Edit the blanks with your own details before sending.
+        </p>
         <div class="mt-7">
-          <WhatsAppLink label="Open WhatsApp Chat" className="btn bg-[#062313] text-white" />
+          <WhatsAppLink label="Message Djibril on WhatsApp" className="btn bg-[#062313] text-white" />
         </div>
-        <p class="mt-6 font-semibold">Tap the green WhatsApp button. Send your travel dates, group size, preferred language, and the places you want to visit.</p>
       </article>
+
       <div class="rounded-lg bg-cream p-8 shadow-lg">
-        <h2 class="font-serif text-4xl font-extrabold text-indigo-deep">Suggested message</h2>
-        <p class="mt-5 rounded-lg bg-white p-5 leading-8 text-slate-700">Hello Djibril, I am interested in visiting Mali. My dates are [dates]. We are [number] travellers. We would like to visit [places]. Can you help us plan a trip?</p>
-        <h3 class="mt-8 font-serif text-3xl font-extrabold text-indigo-deep">En francais</h3>
-        <p class="mt-3 leading-8 text-slate-700">Pour une reponse rapide, contactez Djibril directement sur WhatsApp. Envoyez vos dates, le nombre de voyageurs, votre langue preferee et les lieux que vous souhaitez visiter.</p>
+        <h2 class="font-serif text-4xl font-extrabold text-indigo-deep">Send these details</h2>
+        <div class="mt-6 grid gap-3 sm:grid-cols-2">
+          {checklist.map((item) => (
+            <div class="rounded-lg bg-white p-4 font-bold text-indigo-deep shadow-sm">{item}</div>
+          ))}
+        </div>
+        <h3 class="mt-8 font-serif text-3xl font-extrabold text-indigo-deep">Planning note</h3>
+        <p class="mt-3 leading-8 text-slate-700">
+          Routes depend on current conditions, transport, border rules, visas, and local feasibility. Djibril can advise what may need adjustment before you commit to a plan.
+        </p>
         <div class="mt-6 grid gap-2 text-slate-700">
-          <a class="font-bold text-indigo-deep" href={site.whatsappUrl} target="_blank" rel="noopener">WhatsApp: +{site.whatsappNumber}</a>
+          <a class="font-bold text-indigo-deep" href={`${site.whatsappUrl}?text=${encodeURIComponent(site.whatsappMessage)}`} target="_blank" rel="noopener">
+            WhatsApp: +{site.whatsappNumber}
+          </a>
           <a class="font-bold text-indigo-deep" href={site.facebookUrl} target="_blank" rel="noopener">Facebook: Djibril Kassogue</a>
+          <a class="font-bold text-indigo-deep" href={site.instagramUrl} target="_blank" rel="noopener">Instagram: Djibril Kassogue</a>
         </div>
       </div>
     </div>

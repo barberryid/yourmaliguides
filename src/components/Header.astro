@@ -1,6 +1,11 @@
 ---
 import WhatsAppIcon from "./WhatsAppIcon.astro";
 import { site } from "@config/site";
+
+const currentPath = Astro.url.pathname;
+const whatsappHref = `${site.whatsappUrl}?text=${encodeURIComponent(site.whatsappMessage)}`;
+const isCurrent = (href: string) =>
+  href === "/" ? currentPath === "/" : currentPath.startsWith(href);
 ---
 
 <header class="sticky top-0 z-40 border-b border-slate-900/10 bg-cream/92 backdrop-blur-xl">
@@ -11,13 +16,13 @@ import { site } from "@config/site";
     </a>
     <div class="hidden items-center gap-6 lg:flex">
       {site.mainNav.map((item) => (
-        <a href={item.href} class="text-sm font-bold text-slate-700 hover:text-clay">{item.label}</a>
+        <a href={item.href} class="text-sm font-bold text-slate-700 hover:text-clay" aria-current={isCurrent(item.href) ? "page" : undefined}>{item.label}</a>
       ))}
     </div>
     <div class="flex items-center gap-2">
-      <a href={site.whatsappUrl} target="_blank" rel="noopener" class="btn btn-whatsapp min-h-11 px-4 py-2 text-sm" aria-label="Contact Djibril Kassogue on WhatsApp">
+      <a href={whatsappHref} target="_blank" rel="noopener" class="btn btn-whatsapp min-h-11 px-4 py-2 text-sm" aria-label="Message Djibril on WhatsApp">
         <WhatsAppIcon />
-        <span class="hidden sm:inline">WhatsApp Djibril</span>
+        <span class="hidden sm:inline">Message Djibril</span>
         <span class="sm:hidden">WhatsApp</span>
       </a>
       <button class="grid h-11 w-11 place-items-center rounded-full border border-slate-900/15 text-indigo-deep lg:hidden" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
@@ -28,8 +33,12 @@ import { site } from "@config/site";
   <div id="mobile-menu" class="hidden border-t border-slate-900/10 bg-cream lg:hidden" data-mobile-menu>
     <div class="container-site grid gap-1 py-4">
       {site.mainNav.map((item) => (
-        <a href={item.href} class="rounded-md px-3 py-3 font-bold text-slate-800 hover:bg-white">{item.label}</a>
+        <a href={item.href} class="rounded-md px-3 py-3 font-bold text-slate-800 hover:bg-white" aria-current={isCurrent(item.href) ? "page" : undefined}>{item.label}</a>
       ))}
+      <a href={whatsappHref} target="_blank" rel="noopener" class="btn btn-whatsapp mt-3 w-full justify-center" aria-label="Message Djibril on WhatsApp">
+        <WhatsAppIcon />
+        <span>Message Djibril on WhatsApp</span>
+      </a>
     </div>
   </div>
 </header>
