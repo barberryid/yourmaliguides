@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CTASection from "@components/CTASection.astro";
+---
+
+<BaseLayout
+  title="Page Not Found | Your Mali Guides"
+  description="That page could not be found. Browse Mali tours, photos, and travel planning with local guide Djibril Kassogue."
+  robots="noindex, follow"
+>
+  <section class="section-pad bg-cream">
+    <div class="container-site max-w-4xl">
+      <p class="eyebrow">404</p>
+      <h1 class="display-title mt-4 text-5xl text-indigo-deep md:text-7xl">
+        This page has moved on.
+      </h1>
+      <div class="mt-8 space-y-5 text-lg leading-8 text-slate-700">
+        <p>
+          The page you were looking for does not exist. It may have been part
+          of the old site, or the link may be incomplete.
+        </p>
+        <p>
+          Head back to the <a class="underline" href="/">home page</a>, or
+          explore <a class="underline" href="/tours/">tours</a>,
+          <a class="underline" href="/photos/">photos</a>, and
+          <a class="underline" href="/travel-plans/">travel plans</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+  <CTASection
+    title="Still planning a trip to Mali?"
+    text="Send your route idea to Djibril and ask what is realistic under current local conditions."
+  />
+</BaseLayout>
