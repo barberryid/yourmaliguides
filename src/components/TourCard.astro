@@ -1,5 +1,4 @@
 ---
-import WhatsAppLink from "./WhatsAppLink.astro";
 const { tour } = Astro.props;
 ---
 
@@ -15,7 +14,6 @@ const { tour } = Astro.props;
       <p><strong class="text-indigo-deep">Planning note:</strong> {tour.note}</p>
     </div>
     <div class="mt-5 flex flex-wrap gap-3">
-      <WhatsAppLink label={tour.cta} className="btn btn-whatsapp min-h-11 px-4 py-2 text-sm" subject={`Hello Djibril, I am interested in ${tour.title}. My dates are: _____. Number of travellers: _____. Could you advise what is realistic and safe?`} />
       <a class="btn btn-outline min-h-11 px-4 py-2 text-sm" href={tour.href}>See route idea</a>
     </div>
   </div>

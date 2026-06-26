@@ -21,18 +21,11 @@ const {
   eyebrow,
   title,
   lead,
-  waTopic,
-  waLabel = "Message Djibril on WhatsApp",
   secondaryHref,
   secondaryLabel,
   minHeight = "62vh",
   imagePosition = "center 40%",
 } = Astro.props;
-
-const msg = waTopic
-  ? `Hello Djibril, I am interested in ${waTopic}. My dates are: ___. Number of travellers: ___. Could you advise what is realistic?`
-  : site.whatsappMessage;
-const waHref = `${site.whatsappUrl}?text=${encodeURIComponent(msg)}`;
 ---
 
 <section style={`position:relative;min-height:${minHeight};display:flex;align-items:flex-end;`}>
@@ -55,20 +48,10 @@ const waHref = `${site.whatsappUrl}?text=${encodeURIComponent(msg)}`;
       {lead && (
         <p style="font-family:var(--font-serif);font-size:clamp(1.05rem,1.5vw,1.2rem);line-height:1.65;color:rgba(244,239,228,0.9);margin:0 0 30px;max-width:580px;">{lead}</p>
       )}
-      {(waTopic !== undefined || secondaryHref) && (
-        <div style="display:flex;flex-wrap:wrap;gap:14px;">
-          {waTopic !== undefined && (
-            <a href={waHref} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-ui);font-weight:600;font-size:15px;background:var(--clay);color:var(--cream);padding:14px 24px;border-radius:10px;text-decoration:none;box-shadow:var(--shadow-raised);">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
-              {waLabel}
-            </a>
-          )}
-          {secondaryHref && (
-            <a href={secondaryHref} style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-weight:600;font-size:15px;background:rgba(253,250,243,0.08);color:var(--cream);padding:14px 22px;border-radius:10px;text-decoration:none;border:1px solid rgba(244,239,228,0.35);backdrop-filter:blur(4px);">
-              {secondaryLabel}
-            </a>
-          )}
-        </div>
+      {secondaryHref && (
+        <a href={secondaryHref} style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-weight:600;font-size:15px;background:rgba(253,250,243,0.08);color:var(--cream);padding:14px 22px;border-radius:10px;text-decoration:none;border:1px solid rgba(244,239,228,0.35);backdrop-filter:blur(4px);">
+          {secondaryLabel}
+        </a>
       )}
     </div>
   </div>

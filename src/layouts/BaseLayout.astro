@@ -1,7 +1,6 @@
 ---
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import WhatsAppIcon from "@components/WhatsAppIcon.astro";
 import { site } from "@config/site";
 import "@styles/global.css";
 
@@ -17,7 +16,6 @@ const {
 
 const canonicalUrl = new URL(canonical, site.baseUrl).toString();
 const ogImageUrl = new URL(image, site.baseUrl).toString();
-const whatsappHref = `${site.whatsappUrl}?text=${encodeURIComponent(site.whatsappMessage)}`;
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -89,21 +87,6 @@ const travelAgencySchema = {
       <slot />
     </main>
     <Footer />
-    <div class="mobile-whatsapp-cta">
-      <a
-        href={whatsappHref}
-        target="_blank"
-        rel="noopener"
-        aria-label="Message Djibril on WhatsApp with your dates, group size, and route idea"
-        class="mobile-whatsapp-link"
-      >
-        <WhatsAppIcon class="h-7 w-7" />
-        <span>
-          <strong>Message Djibril on WhatsApp</strong>
-          <small>Send your dates, group size, and route idea.</small>
-        </span>
-      </a>
-    </div>
     <script>
       const toggle = document.querySelector("[data-menu-toggle]");
       const menu = document.querySelector("[data-mobile-menu]");
