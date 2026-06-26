@@ -10,42 +10,36 @@ const crossBorderRoutes = [
     feasibility: "Conditions permitting",
     feasColor: "rgba(196,154,58,0.90)",
     body: "Cross-border planning between Mali and Burkina Faso, including border timing, transport, local contacts, and current security conditions.",
-    topic: "a Mali and Burkina Faso cross-border route",
   },
   {
     title: "Mali and Ivory Coast",
     feasibility: "Conditions permitting",
     feasColor: "rgba(196,154,58,0.90)",
     body: "Connecting Mali and Côte d'Ivoire with attention to border rules, overland transport options, and practical timing.",
-    topic: "a Mali and Ivory Coast cross-border route",
   },
   {
     title: "Mali and Guinea",
     feasibility: "Feasibility checked first",
     feasColor: "rgba(184,88,50,0.90)",
     body: "Route planning including border practicalities, transport options, and visa considerations between Mali and Guinea.",
-    topic: "a Mali and Guinea cross-border route",
   },
   {
     title: "Guinea-Bissau and West Africa",
     feasibility: "Feasibility checked first",
     feasColor: "rgba(184,88,50,0.90)",
     body: "Accessing Guinea-Bissau as part of a wider West Africa journey, with careful attention to visas, ferries, and overland options.",
-    topic: "a West Africa route including Guinea-Bissau",
   },
   {
     title: "Custom Multi-Country Route",
     feasibility: "Open to visitors",
     feasColor: "rgba(31,76,59,0.85)",
     body: "A private route built around your chosen countries, interests, and budget. Djibril can advise which combinations work best under current conditions.",
-    topic: "a custom multi-country West Africa route",
   },
   {
     title: "West Africa Network Support",
     feasibility: "Open to visitors",
     feasColor: "rgba(31,76,59,0.85)",
     body: "Djibril's network of local guides and contacts across the region can support trips that go beyond Mali itself.",
-    topic: "West Africa network support for my trip",
   },
 ];
 
@@ -90,12 +84,6 @@ const borderPoints = [
                 <span style={`flex-shrink:0;font-family:var(--font-ui);font-size:11px;font-weight:600;color:var(--cream);background:${r.feasColor};padding:4px 10px;border-radius:999px;`}>{r.feasibility}</span>
               </div>
               <p style="font-family:var(--font-serif);font-size:0.97rem;line-height:1.65;color:var(--text-body);margin:0 0 auto;">{r.body}</p>
-              <div style="padding-top:16px;margin-top:18px;border-top:1px solid var(--sand);">
-                <a href={`https://wa.me/22374482693?text=${encodeURIComponent(`Hello Djibril, I am interested in ${r.topic}. My dates are: ___. Number of travellers: ___. Passport nationality: ___. Could you advise?`)}`} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-ui);font-weight:600;font-size:13.5px;color:var(--clay-text);text-decoration:none;">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
-                  Ask on WhatsApp
-                </a>
-              </div>
             </div>
           </div>
         ))}
