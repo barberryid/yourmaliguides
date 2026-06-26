@@ -1,39 +1,78 @@
 ---
-import WhatsAppLink from "./WhatsAppLink.astro";
 import { site } from "@config/site";
 const year = new Date().getFullYear();
+const waHref = `${site.whatsappUrl}?text=${encodeURIComponent(site.whatsappMessage)}`;
 ---
 
-<footer class="bg-charcoal text-white">
-  <div class="container-site grid gap-10 py-14 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+<footer style="background:var(--ink);color:var(--text-on-dark);">
+  <div class="container-site" style="display:grid;grid-template-columns:1.6fr 1fr 1.2fr;gap:48px;padding-block:clamp(3.5rem,7vw,5rem);">
+    <!-- Brand -->
     <div>
-      <p class="font-serif text-2xl font-extrabold">Your Mali Guides</p>
-      <p class="mt-1 font-bold text-sahel-sand">Djibril Kassogue</p>
-      <p class="mt-4 max-w-md leading-7 text-white/72">
-        Private guiding, cultural interpretation, transport help, and safety-aware route planning in Mali and selected West Africa routes.
+      <a href="/" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:16px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9px;background:var(--clay);color:var(--cream);font-family:var(--font-ui);font-weight:800;font-size:12px;">YMG</span>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:1.15rem;color:var(--cream);">Your Mali Guides</span>
+      </a>
+      <p style="font-family:var(--font-serif);font-size:0.95rem;line-height:1.65;color:rgba(244,239,228,0.72);max-width:30ch;margin:0 0 24px;">
+        Private guiding, cultural interpretation, and safety-aware route planning in Mali and West Africa.
       </p>
-      <div class="mt-6">
-        <WhatsAppLink label="Message Djibril on WhatsApp" />
+      <a href={waHref} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-weight:600;font-size:0.875rem;background:var(--clay);color:var(--cream);padding:11px 18px;border-radius:10px;text-decoration:none;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+        Message Djibril on WhatsApp
+      </a>
+    </div>
+
+    <!-- Explore -->
+    <div>
+      <p class="ymg-foot-label">Explore</p>
+      <div class="ymg-foot-links" style="margin-top:16px;display:grid;gap:10px;">
+        {site.mainNav.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
       </div>
     </div>
+
+    <!-- Contact -->
     <div>
-      <p class="font-bold text-sahel-sand">Explore</p>
-      <div class="mt-4 grid gap-3 text-white/72">
-        {site.mainNav.map((item) => <a class="hover:text-white" href={item.href}>{item.label}</a>)}
+      <p class="ymg-foot-label">Contact</p>
+      <div class="ymg-foot-links" style="margin-top:16px;display:grid;gap:10px;">
+        <a href={waHref} target="_blank" rel="noopener">WhatsApp: +{site.whatsappNumber}</a>
+        <a href={site.facebookUrl} target="_blank" rel="noopener">Facebook: Djibril Kassogue</a>
+        <a href={site.instagramUrl} target="_blank" rel="noopener">Instagram: @djibril_kassogue</a>
       </div>
-    </div>
-    <div>
-      <p class="font-bold text-sahel-sand">Contact</p>
-      <div class="mt-4 grid gap-3 text-white/72">
-        <a class="hover:text-white" href={`${site.whatsappUrl}?text=${encodeURIComponent(site.whatsappMessage)}`} target="_blank" rel="noopener">WhatsApp: +{site.whatsappNumber}</a>
-        <a class="hover:text-white" href={site.facebookUrl} target="_blank" rel="noopener">Facebook: Djibril Kassogue</a>
-        <a class="hover:text-white" href={site.instagramUrl} target="_blank" rel="noopener">Instagram: Djibril Kassogue</a>
-        <a class="hover:text-white" href={site.baseUrl}>yourmaliguides.com</a>
-      </div>
-      <p class="mt-6 text-sm leading-6 text-white/55">Routes depend on current local conditions, border rules, visas, transport, and practical feasibility.</p>
+      <p style="margin-top:20px;font-family:var(--font-ui);font-size:0.8rem;line-height:1.6;color:rgba(244,239,228,0.45);">Routes depend on current local conditions, border rules, visas, and practical feasibility.</p>
     </div>
   </div>
-  <div class="border-t border-white/10 py-5">
-    <div class="container-site text-sm text-white/55">Copyright {year} Your Mali Guides. Mali and West Africa private guide services.</div>
+
+  <div style="border-top:1px solid rgba(244,239,228,0.14);padding-block:20px;">
+    <div class="container-site" style="font-family:var(--font-ui);font-size:0.78rem;color:rgba(244,239,228,0.45);">
+      &copy; {year} Your Mali Guides · Mali and West Africa private guide services.
+    </div>
   </div>
 </footer>
+
+<style>
+  .ymg-foot-label {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .ymg-foot-links a {
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    color: rgba(244,239,228,0.65);
+    text-decoration: none;
+    transition: color 160ms ease;
+  }
+  .ymg-foot-links a:hover {
+    color: var(--cream);
+  }
+  @media (max-width: 767px) {
+    footer .container-site {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+  }
+</style>

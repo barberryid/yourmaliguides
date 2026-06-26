@@ -2,43 +2,78 @@
 import WhatsAppIcon from "./WhatsAppIcon.astro";
 import { site } from "@config/site";
 
+interface Props {
+  heroHeader?: boolean;
+}
+
+const { heroHeader = false } = Astro.props;
 const currentPath = Astro.url.pathname;
 const whatsappHref = `${site.whatsappUrl}?text=${encodeURIComponent(site.whatsappMessage)}`;
 const isCurrent = (href: string) =>
   href === "/" ? currentPath === "/" : currentPath.startsWith(href);
+
+const navLinks = site.mainNav.filter(item => item.href !== "/");
 ---
 
-<header class="sticky top-0 z-40 border-b border-slate-900/10 bg-cream/92 backdrop-blur-xl">
-  <nav class="container-site flex min-h-20 items-center justify-between gap-4" aria-label="Main navigation">
-    <a href="/" class="flex items-center gap-3 font-serif text-xl font-extrabold text-indigo-deep">
-      <span class="grid h-11 w-11 place-items-center rounded-full bg-indigo-deep text-sm text-sahel-sand">YMG</span>
-      <span class="hidden sm:inline">Your Mali Guides</span>
-    </a>
-    <div class="hidden items-center gap-6 lg:flex">
-      {site.mainNav.map((item) => (
-        <a href={item.href} class="text-sm font-bold text-slate-700 hover:text-clay" aria-current={isCurrent(item.href) ? "page" : undefined}>{item.label}</a>
-      ))}
-    </div>
-    <div class="flex items-center gap-2">
-      <a href={whatsappHref} target="_blank" rel="noopener" class="btn btn-whatsapp min-h-11 px-4 py-2 text-sm" aria-label="Message Djibril on WhatsApp">
-        <WhatsAppIcon />
-        <span class="hidden sm:inline">Message Djibril</span>
-        <span class="sm:hidden">WhatsApp</span>
+{heroHeader ? (
+  <header style="position:absolute;top:0;left:0;right:0;z-index:30;">
+    <div style="max-width:var(--content-max);margin:0 auto;padding:18px var(--gutter) 0;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="/" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:var(--clay);color:var(--cream);font-family:var(--font-ui);font-weight:800;font-size:13px;letter-spacing:0.02em;border:1px solid rgba(255,255,255,0.25);">YMG</span>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:19px;letter-spacing:-0.01em;color:var(--cream);">Your Mali Guides</span>
       </a>
-      <button class="grid h-11 w-11 place-items-center rounded-full border border-slate-900/15 text-indigo-deep lg:hidden" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
-        <span class="h-0.5 w-5 bg-current shadow-[0_6px_0_current,0_-6px_0_current]"></span>
-      </button>
+      <nav style="display:flex;align-items:center;gap:26px;" aria-label="Main navigation">
+        <div class="ymg-hero-nav" style="display:flex;gap:26px;font-family:var(--font-ui);font-size:14px;font-weight:500;color:rgba(244,239,228,0.82);">
+          {navLinks.map((item) => (
+            <a href={item.href} style="text-decoration:none;transition:color 160ms ease;" aria-current={isCurrent(item.href) ? "page" : undefined}>{item.label}</a>
+          ))}
+        </div>
+        <a href={whatsappHref} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-weight:600;font-size:13.5px;background:var(--clay);color:var(--cream);padding:10px 17px;border-radius:10px;text-decoration:none;border:1px solid rgba(255,255,255,0.14);" aria-label="Message Djibril on WhatsApp">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+          WhatsApp
+        </a>
+      </nav>
     </div>
-  </nav>
-  <div id="mobile-menu" class="hidden border-t border-slate-900/10 bg-cream lg:hidden" data-mobile-menu>
-    <div class="container-site grid gap-1 py-4">
-      {site.mainNav.map((item) => (
-        <a href={item.href} class="rounded-md px-3 py-3 font-bold text-slate-800 hover:bg-white" aria-current={isCurrent(item.href) ? "page" : undefined}>{item.label}</a>
-      ))}
-      <a href={whatsappHref} target="_blank" rel="noopener" class="btn btn-whatsapp mt-3 w-full justify-center" aria-label="Message Djibril on WhatsApp">
-        <WhatsAppIcon />
-        <span>Message Djibril on WhatsApp</span>
+    <style>
+      .ymg-hero-nav a:hover { color: var(--cream) !important; }
+      @media (max-width: 767px) {
+        .ymg-hero-nav { display: none !important; }
+      }
+    </style>
+  </header>
+) : (
+  <header class="sticky top-0 z-40 border-b bg-cream/95 backdrop-blur-xl" style="border-color:var(--sand);">
+    <nav class="container-site flex min-h-20 items-center justify-between gap-4" aria-label="Main navigation">
+      <a href="/" class="flex items-center gap-3" style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--ink);">
+        <span class="grid h-10 w-10 place-items-center rounded-lg text-sm" style="background:var(--clay);color:var(--cream);font-family:var(--font-ui);font-weight:800;">YMG</span>
+        <span class="hidden sm:inline">Your Mali Guides</span>
       </a>
+      <div class="hidden items-center gap-6 lg:flex">
+        {navLinks.map((item) => (
+          <a href={item.href} class="text-sm font-medium transition-colors" style="font-family:var(--font-ui);color:var(--text-body);" aria-current={isCurrent(item.href) ? "page" : undefined}>{item.label}</a>
+        ))}
+      </div>
+      <div class="flex items-center gap-2">
+        <a href={whatsappHref} target="_blank" rel="noopener" class="btn btn-clay min-h-11 px-4 py-2 text-sm" aria-label="Message Djibril on WhatsApp">
+          <WhatsAppIcon />
+          <span class="hidden sm:inline">Message Djibril</span>
+          <span class="sm:hidden">WhatsApp</span>
+        </a>
+        <button class="grid h-11 w-11 place-items-center rounded-full text-ink lg:hidden" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" style="border:1px solid var(--sand);color:var(--ink);">
+          <span class="h-0.5 w-5 bg-current shadow-[0_6px_0_current,0_-6px_0_current]"></span>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t lg:hidden" style="background:var(--cream);border-color:var(--sand);" data-mobile-menu>
+      <div class="container-site grid gap-1 py-4">
+        {site.mainNav.map((item) => (
+          <a href={item.href} class="rounded-lg px-3 py-3 font-bold hover:bg-white" style="font-family:var(--font-ui);color:var(--ink);" aria-current={isCurrent(item.href) ? "page" : undefined}>{item.label}</a>
+        ))}
+        <a href={whatsappHref} target="_blank" rel="noopener" class="btn btn-clay mt-3 w-full justify-center" aria-label="Message Djibril on WhatsApp">
+          <WhatsAppIcon />
+          <span>Message Djibril on WhatsApp</span>
+        </a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+)}
