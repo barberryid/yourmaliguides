@@ -205,11 +205,10 @@ const faqSchema = {
   description="Plan a private Mali trip with Djibril Kassogue, an official local guide for Bamako visits, cultural tours, heritage routes, transport help, and safety-aware travel planning."
   image="/images/your-mali-guides-og.jpg"
   additionalSchema={faqSchema}
-  heroHeader={true}
 >
 
   <!-- ============ HERO ============ -->
-  <section style="position:relative;min-height:94vh;display:flex;align-items:flex-end;">
+  <section style="position:relative;min-height:clamp(34rem,78vh,52rem);display:grid;align-items:center;">
     <div style="position:absolute;inset:0;overflow:hidden;">
       <img
         src="/images/masquerade-dancers.jpg"
@@ -217,12 +216,12 @@ const faqSchema = {
         width="1600" height="1067"
         fetchpriority="high"
         decoding="async"
-        style="width:100%;height:100%;object-fit:cover;object-position:center 40%;"
+        style="width:100%;height:100%;object-fit:cover;object-position:center 20%;"
       />
       <div style="position:absolute;inset:0;background:var(--overlay-hero);"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(96deg, rgba(21,32,29,0.66) 0%, rgba(21,32,29,0.24) 46%, rgba(21,32,29,0) 80%);"></div>
     </div>
-    <div style="position:relative;width:100%;max-width:var(--content-max);margin:0 auto;padding:128px var(--gutter) 104px;">
+    <div style="position:relative;width:100%;max-width:var(--content-max);margin:0 auto;padding:clamp(2rem,6vw,4rem) var(--gutter);">
       <div class="hero-glass-card" style="max-width:640px;">
         <p class="eyebrow-gold" style="margin-bottom:22px;color:rgba(31,76,59,0.9);">Mali · West Africa · Private guiding</p>
         <h1 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.025em;line-height:0.99;font-size:clamp(2.2rem,4.5vw,3.8rem);color:var(--ink);margin:0 0 20px;text-wrap:balance;">
