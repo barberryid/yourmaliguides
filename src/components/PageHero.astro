@@ -1,0 +1,75 @@
+---
+import { site } from "@config/site";
+
+interface Props {
+  image: string;
+  alt: string;
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  waTopic?: string;
+  waLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+  minHeight?: string;
+  imagePosition?: string;
+}
+
+const {
+  image,
+  alt,
+  eyebrow,
+  title,
+  lead,
+  waTopic,
+  waLabel = "Message Djibril on WhatsApp",
+  secondaryHref,
+  secondaryLabel,
+  minHeight = "62vh",
+  imagePosition = "center 40%",
+} = Astro.props;
+
+const msg = waTopic
+  ? `Hello Djibril, I am interested in ${waTopic}. My dates are: ___. Number of travellers: ___. Could you advise what is realistic?`
+  : site.whatsappMessage;
+const waHref = `${site.whatsappUrl}?text=${encodeURIComponent(msg)}`;
+---
+
+<section style={`position:relative;min-height:${minHeight};display:flex;align-items:flex-end;`}>
+  <div style="position:absolute;inset:0;overflow:hidden;">
+    <img
+      src={image}
+      alt={alt}
+      width="1600" height="900"
+      fetchpriority="high"
+      decoding="async"
+      style={`width:100%;height:100%;object-fit:cover;object-position:${imagePosition};`}
+    />
+    <div style="position:absolute;inset:0;background:var(--overlay-hero);"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(96deg, rgba(21,32,29,0.60) 0%, rgba(21,32,29,0.22) 46%, rgba(21,32,29,0) 80%);"></div>
+  </div>
+  <div style="position:relative;width:100%;max-width:var(--content-max);margin:0 auto;padding:clamp(5rem,10vw,8rem) var(--gutter) clamp(3.5rem,6vw,5.5rem);">
+    <div style="max-width:720px;">
+      <p style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:12px;color:var(--gold);margin:0 0 18px;">{eyebrow}</p>
+      <h1 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.025em;line-height:1.02;font-size:clamp(2.4rem,5vw,4.2rem);color:var(--cream);margin:0 0 20px;text-wrap:balance;">{title}</h1>
+      {lead && (
+        <p style="font-family:var(--font-serif);font-size:clamp(1.05rem,1.5vw,1.2rem);line-height:1.65;color:rgba(244,239,228,0.9);margin:0 0 30px;max-width:580px;">{lead}</p>
+      )}
+      {(waTopic !== undefined || secondaryHref) && (
+        <div style="display:flex;flex-wrap:wrap;gap:14px;">
+          {waTopic !== undefined && (
+            <a href={waHref} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-ui);font-weight:600;font-size:15px;background:var(--clay);color:var(--cream);padding:14px 24px;border-radius:10px;text-decoration:none;box-shadow:var(--shadow-raised);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+              {waLabel}
+            </a>
+          )}
+          {secondaryHref && (
+            <a href={secondaryHref} style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-weight:600;font-size:15px;background:rgba(253,250,243,0.08);color:var(--cream);padding:14px 22px;border-radius:10px;text-decoration:none;border:1px solid rgba(244,239,228,0.35);backdrop-filter:blur(4px);">
+              {secondaryLabel}
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

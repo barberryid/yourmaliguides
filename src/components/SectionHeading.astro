@@ -3,7 +3,11 @@ const { eyebrow, title, text, align = "left" } = Astro.props;
 ---
 
 <div class:list={["max-w-3xl", align === "center" && "mx-auto text-center"]}>
-  {eyebrow && <p class="eyebrow mb-3">{eyebrow}</p>}
-  <h2 class="display-title text-balance text-4xl text-indigo-deep md:text-5xl">{title}</h2>
-  {text && <p class="mt-5 text-lg leading-8 text-slate-700">{text}</p>}
+  {eyebrow && (
+    <p style="font-family:var(--font-ui);font-size:0.75rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay-text);margin:0 0 16px;">{eyebrow}</p>
+  )}
+  <h2 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.015em;line-height:1.06;font-size:clamp(2rem,3.4vw,3rem);color:var(--ink);margin:0;">{title}</h2>
+  {text && (
+    <p style="font-family:var(--font-serif);font-size:1.1rem;line-height:1.7;color:var(--text-muted);margin:18px 0 0;">{text}</p>
+  )}
 </div>

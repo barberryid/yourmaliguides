@@ -1,46 +1,141 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import SectionHeading from "@components/SectionHeading.astro";
-import CTASection from "@components/CTASection.astro";
-import WhatsAppLink from "@components/WhatsAppLink.astro";
+import FinalCTA from "@components/FinalCTA.astro";
 import { images } from "@data/images";
+
+// Group gallery images into themed sections
+const themes = [
+  {
+    eyebrow: "People and culture",
+    items: images.gallery.filter((_, i) => [0,1,6,9,16,17,18,19,20].includes(i)),
+  },
+  {
+    eyebrow: "Routes and landscapes",
+    items: images.gallery.filter((_, i) => [2,3,10,11,14,15,21,23].includes(i)),
+  },
+  {
+    eyebrow: "Ceremonies and tradition",
+    items: images.gallery.filter((_, i) => [5,12,13,22,24,25,26,27,28].includes(i)),
+  },
+  {
+    eyebrow: "Markets, craft, and textiles",
+    items: images.gallery.filter((_, i) => [4,7,8,29,30].includes(i)),
+  },
+];
 ---
 
-<BaseLayout title="Photo Gallery | Your Mali Guides" description="See Mali travel photos, local culture, textiles, community visits, landscapes, and guiding moments with Djibril Kassogue.">
-  <section class="section-pad bg-cream">
+<BaseLayout
+  title="Mali Photo Gallery | Your Mali Guides"
+  description="See Mali travel photos, local culture, textiles, community visits, landscapes, and guiding moments with Djibril Kassogue."
+>
+
+  <!-- Page intro -->
+  <section style="background:var(--cream);padding:clamp(4rem,8vw,6.5rem) 0 0;">
     <div class="container-site">
-      <SectionHeading eyebrow="Photo gallery" title="Mali in real moments" text="A curated gallery from the existing Your Mali Guides image collection: guiding moments, Bamako and city life, Niger River travel, textiles, heritage routes, culture, and community connections." />
-      <img
-        src={images.hero}
-        alt="Niger River and travel route in Mali"
-        width="1600"
-        height="1000"
-        fetchpriority="high"
-        class="mt-10 h-[460px] w-full rounded-lg object-cover shadow-xl"
-      />
+      <div style="max-width:720px;">
+        <p style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:0.75rem;color:var(--clay-text);margin:0 0 18px;">Photo story</p>
+        <h1 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.025em;line-height:1.04;font-size:clamp(2.4rem,5vw,4rem);color:var(--ink);margin:0 0 20px;text-wrap:balance;">Mali in real moments</h1>
+        <p style="font-family:var(--font-serif);font-size:1.15rem;line-height:1.7;color:var(--text-body);margin:0 0 40px;max-width:60ch;">A curated collection from real guiding visits: people, cultural ceremonies, river travel, textiles, landscapes, and community moments across Mali and West Africa.</p>
+      </div>
+      <!-- Feature image -->
+      <div class="gal-tile" style="border-radius:16px;overflow:hidden;aspect-ratio:21/9;">
+        <img
+          src={images.hero}
+          alt="Niger River and travel route in Mali"
+          width="1600" height="686"
+          fetchpriority="high"
+          style="width:100%;height:100%;object-fit:cover;"
+        />
+      </div>
     </div>
   </section>
-  <section class="section-pad bg-white">
+
+  <!-- Themed gallery sections -->
+  {themes.map((theme) => (
+    <section style="background:var(--cream);padding:clamp(3rem,6vw,5rem) 0;">
+      <div class="container-site">
+        <p style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:0.75rem;color:var(--clay-text);margin:0 0 24px;">{theme.eyebrow}</p>
+        <div class="gallery-grid">
+          {theme.items.map((img, i) => (
+            <figure class:list={["gal-tile", i === 0 && "gal-feature"]} style="margin:0;">
+              <img
+                src={img.src}
+                alt={img.alt}
+                width="720"
+                height="480"
+                loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;"
+              />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- New client photos from design handoff -->
+  <section style="background:#fff;border-top:1px solid var(--sand);padding:clamp(3rem,6vw,5rem) 0;">
     <div class="container-site">
-      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {images.gallery.map((image) => (
-          <figure class="overflow-hidden rounded-lg bg-cream shadow-md">
-            <img
-              src={image.src}
-              alt={image.alt}
-              width="720"
-              height="540"
-              loading="lazy"
-              class="aspect-[4/3] w-full object-cover"
-            />
-            <figcaption class="px-4 py-3 text-sm font-bold text-indigo-deep">{image.caption}</figcaption>
+      <p style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:0.75rem;color:var(--clay-text);margin:0 0 24px;">Recent tours</p>
+      <div class="gallery-grid">
+        {[
+          { src: "/images/masquerade-dancers.jpg", alt: "Masquerade dancers in full costume at a village ceremony" },
+          { src: "/images/girls-calabash.jpg", alt: "Girls with calabash bowls at a community gathering" },
+          { src: "/images/feather-dancer.jpg", alt: "Ceremonial dancer in a feathered costume" },
+          { src: "/images/fishermen-nets.jpg", alt: "Fishermen casting nets at dawn" },
+          { src: "/images/fishing-village.jpg", alt: "A riverside fishing village in West Africa" },
+          { src: "/images/women-indigo.jpg", alt: "Women in indigo-dyed traditional dress" },
+          { src: "/images/initiates-dance.jpg", alt: "Young initiates performing a traditional dance" },
+          { src: "/images/robe-man-women.jpg", alt: "Malian man and women in traditional robes" },
+          { src: "/images/flag-bearer.jpg", alt: "Flag bearer at a West African community gathering" },
+          { src: "/images/smiling-portrait.jpg", alt: "Warm portrait of a local community member" },
+          { src: "/images/bush-taxi.jpg", alt: "Loaded bush taxi on an open West African road" },
+          { src: "/images/mali-mudcloth-interior.jpg", alt: "Interior decorated with Malian mudcloth patterns" },
+        ].map((img, i) => (
+          <figure class:list={["gal-tile", i === 0 && "gal-feature"]} style="margin:0;">
+            <img src={img.src} alt={img.alt} width="720" height="480" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
           </figure>
         ))}
       </div>
-      <div class="mt-10">
-        <WhatsAppLink label="Ask Djibril for recent traveller references" />
-      </div>
     </div>
   </section>
-  <CTASection title="Want to see these places with a local guide?" text="Message Djibril on WhatsApp and share the places, culture, or routes that interest you most." />
+
+  <FinalCTA
+    title="Want to see these places in person?"
+    lead="Message Djibril on WhatsApp and share the places, culture, or routes that interest you most."
+    waLabel="Message Djibril on WhatsApp"
+  />
+
 </BaseLayout>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 12px;
+  }
+
+  .gal-feature {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  @media (max-width: 900px) {
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 160px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 140px;
+    }
+    .gal-feature {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
+  }
+</style>

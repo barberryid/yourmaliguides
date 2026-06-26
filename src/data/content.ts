@@ -2,68 +2,83 @@ import { images } from "./images";
 
 export const trustBadges = [
   "Official registered guide",
-  "Local knowledge",
+  "Real local knowledge",
   "Custom private trips",
   "References available",
   "Safety-aware route planning",
 ];
 
-export const tours = [
+export const routes = [
   {
     title: "Bamako City and Culture",
     image: images.bamako,
-    href: "/tours/#bamako",
-    bestFor: "Arrival days, short stays, first-time visitors.",
-    experience: "Markets, music, food, museums, neighbourhood life, and practical orientation.",
+    alt: "Bamako city life, markets, and culture",
+    bestFor: "Arrival days, short stays, and first-time visitors.",
     note: "A good standalone option or first step before travelling further.",
-    cta: "Ask about Bamako on WhatsApp",
+    feasibility: "Open to visitors",
+    feasColor: "rgba(31,76,59,0.85)",
+    topic: "Bamako City and Culture",
+    ideaUrl: "/tours/#bamako",
   },
   {
-    title: "Djenne and Mopti",
+    title: "Djenné and Mopti",
     image: images.djenne,
-    href: "/tours/#djenne-mopti",
+    alt: "Djenné mud mosque and Mopti river town",
     bestFor: "Travellers interested in heritage towns and river culture.",
-    experience: "Mud architecture, river life, historic towns, markets, and cultural context.",
     note: "Only advised when current local conditions make the route realistic.",
-    cta: "Ask about Djenne and Mopti",
+    feasibility: "Conditions permitting",
+    feasColor: "rgba(196,154,58,0.90)",
+    topic: "Djenné and Mopti",
+    ideaUrl: "/tours/#djenne-mopti",
   },
   {
     title: "Dogon Country",
     image: images.dogon,
-    href: "/tours/#dogon",
+    alt: "Dogon Country cliffs and traditional villages",
     bestFor: "Cultural heritage travellers with flexible plans.",
-    experience: "Villages, cliffs, traditional architecture, and local interpretation when conditions allow.",
     note: "Dogon routes are assessed case by case with current local advice.",
-    cta: "Ask if Dogon is realistic",
+    feasibility: "Feasibility checked first",
+    feasColor: "rgba(184,88,50,0.90)",
+    topic: "Dogon Country",
+    ideaUrl: "/tours/#dogon",
   },
   {
     title: "Timbuktu and Desert Routes",
     image: images.timbuktu,
-    href: "/tours/#timbuktu",
-    bestFor: "Experienced travellers who understand that plans may need adjustment.",
-    experience: "Historic desert heritage, manuscript culture, and northern routes when access is realistic.",
-    note: "Never promised blindly. Feasibility is checked before plans are confirmed.",
-    cta: "Ask about current feasibility",
+    alt: "Timbuktu and northern Mali desert landscape",
+    bestFor: "Experienced travellers who understand plans may need adjustment.",
+    note: "Never promised blindly — feasibility is checked before plans are confirmed.",
+    feasibility: "Feasibility checked first",
+    feasColor: "rgba(184,88,50,0.90)",
+    topic: "Timbuktu and Desert Routes",
+    ideaUrl: "/tours/#timbuktu",
   },
   {
     title: "Mali and Burkina Faso",
     image: images.westAfrica,
-    href: "/west-africa/",
+    alt: "West Africa cross-border route planning",
     bestFor: "Flexible travellers planning selected West Africa routes.",
-    experience: "Cross-border planning, border timing, visa considerations, transport, and local contacts.",
     note: "Designed around current border, transport, and security conditions.",
-    cta: "Ask about West Africa routes",
+    feasibility: "Conditions permitting",
+    feasColor: "rgba(196,154,58,0.90)",
+    topic: "a Mali and Burkina Faso route",
+    ideaUrl: "/west-africa/",
   },
   {
     title: "West Africa Custom Route",
     image: images.about,
-    href: "/custom-trip/",
+    alt: "Custom West Africa private guiding route",
     bestFor: "Travellers with specific dates, interests, or countries in mind.",
-    experience: "A private route shaped around your dates, budget level, preferred pace, and support needs.",
     note: "Send dates, group size, interests, and the countries you hope to include.",
-    cta: "Ask for custom route advice",
+    feasibility: "Open to visitors",
+    feasColor: "rgba(31,76,59,0.85)",
+    topic: "a custom West Africa route",
+    ideaUrl: "/custom-trip/",
   },
 ];
+
+// Legacy alias for backward compatibility
+export const tours = routes;
 
 export const features = [
   {
@@ -101,4 +116,26 @@ export const planningItems = [
   "Preferred language",
   "Budget level",
   "Help needed with hotels, transport, permits, borders, or onward travel",
+];
+
+export const planningSteps = [
+  {
+    n: "1",
+    text: "Send your dates, group size, language preference, and places of interest on WhatsApp.",
+  },
+  {
+    n: "2",
+    text: "Djibril checks timing, transport, current feasibility, and route options.",
+  },
+  {
+    n: "3",
+    text: "You agree a private plan that fits your pace and practical conditions on the ground.",
+  },
+];
+
+export const safetyPoints = [
+  { title: "Current local advice", body: "Routes are assessed against the latest ground-level information, not outdated guides." },
+  { title: "Routes assessed case by case", body: "Each request is judged individually — no blanket promises about what is or isn't accessible." },
+  { title: "Transport and timing checked", body: "Practical factors like road conditions, transport links, and seasonal timing all affect the plan." },
+  { title: "Alternative plans when needed", body: "If a route is not realistic, Djibril will suggest what is — not just say no." },
 ];

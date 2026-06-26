@@ -1,26 +1,11 @@
 ---
-import WhatsAppLink from "./WhatsAppLink.astro";
+// Thin wrapper kept for backward compatibility — delegates to FinalCTA
+import FinalCTA from "./FinalCTA.astro";
 
 const {
   title = "Plan a realistic private trip in Mali",
   text = "Send Djibril your dates, group size, and the places you hope to visit. He can advise what is practical, what may need adjustment, and how to plan the route responsibly.",
-  helper = "Dates · Group size · Places of interest · Preferred language · Travel pace",
 } = Astro.props;
 ---
 
-<section class="section-pad bg-indigo-deep text-white">
-  <div class="container-site grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-center">
-    <div>
-      <p class="eyebrow text-sahel-sand">Plan with a local guide</p>
-      <h2 class="display-title mt-3 text-balance text-4xl md:text-5xl">{title}</h2>
-      <p class="mt-5 max-w-2xl text-lg leading-8 text-white/78">{text}</p>
-      <p class="mt-3 text-sm font-semibold text-sahel-sand">{helper}</p>
-    </div>
-    <div class="rounded-lg border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur">
-      <WhatsAppLink label="Message Djibril on WhatsApp" className="btn btn-whatsapp w-full" />
-      <p class="mt-4 text-sm leading-6 text-white/75">
-        Routes depend on current conditions and local feasibility. Always check current travel advisories and entry requirements before booking international travel.
-      </p>
-    </div>
-  </div>
-</section>
+<FinalCTA title={title} lead={text} />

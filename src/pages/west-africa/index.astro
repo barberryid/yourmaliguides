@@ -1,32 +1,162 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import SectionHeading from "@components/SectionHeading.astro";
-import CTASection from "@components/CTASection.astro";
-import WhatsAppLink from "@components/WhatsAppLink.astro";
+import PageHero from "@components/PageHero.astro";
+import FinalCTA from "@components/FinalCTA.astro";
 import { images } from "@data/images";
+import { site } from "@config/site";
+
+const crossBorderRoutes = [
+  {
+    title: "Mali and Burkina Faso",
+    feasibility: "Conditions permitting",
+    feasColor: "rgba(196,154,58,0.90)",
+    body: "Cross-border planning between Mali and Burkina Faso, including border timing, transport, local contacts, and current security conditions.",
+    topic: "a Mali and Burkina Faso cross-border route",
+  },
+  {
+    title: "Mali and Ivory Coast",
+    feasibility: "Conditions permitting",
+    feasColor: "rgba(196,154,58,0.90)",
+    body: "Connecting Mali and Côte d'Ivoire with attention to border rules, overland transport options, and practical timing.",
+    topic: "a Mali and Ivory Coast cross-border route",
+  },
+  {
+    title: "Mali and Guinea",
+    feasibility: "Feasibility checked first",
+    feasColor: "rgba(184,88,50,0.90)",
+    body: "Route planning including border practicalities, transport options, and visa considerations between Mali and Guinea.",
+    topic: "a Mali and Guinea cross-border route",
+  },
+  {
+    title: "Guinea-Bissau and West Africa",
+    feasibility: "Feasibility checked first",
+    feasColor: "rgba(184,88,50,0.90)",
+    body: "Accessing Guinea-Bissau as part of a wider West Africa journey, with careful attention to visas, ferries, and overland options.",
+    topic: "a West Africa route including Guinea-Bissau",
+  },
+  {
+    title: "Custom Multi-Country Route",
+    feasibility: "Open to visitors",
+    feasColor: "rgba(31,76,59,0.85)",
+    body: "A private route built around your chosen countries, interests, and budget. Djibril can advise which combinations work best under current conditions.",
+    topic: "a custom multi-country West Africa route",
+  },
+  {
+    title: "West Africa Network Support",
+    feasibility: "Open to visitors",
+    feasColor: "rgba(31,76,59,0.85)",
+    body: "Djibril's network of local guides and contacts across the region can support trips that go beyond Mali itself.",
+    topic: "West Africa network support for my trip",
+  },
+];
+
+const borderPoints = [
+  { title: "Border timing", body: "Crossing times, days open, and practical logistics vary — Djibril checks current conditions before confirming." },
+  { title: "Visa requirements", body: "Entry rules differ by passport. Always verify requirements well in advance of your dates." },
+  { title: "Transport options", body: "Bus, shared taxi, private driver, or bush taxi — the right choice depends on the route, timing, and your comfort level." },
+  { title: "Local contacts", body: "Djibril's regional network means trusted people at key points on the route, not just in Mali." },
+];
 ---
 
-<BaseLayout title="West Africa Custom Trips | Your Mali Guides" description="Plan selected West Africa routes with Djibril Kassogue and his local network, depending on borders, visas, transport, and security conditions.">
-  <section class="section-pad bg-cream">
-    <div class="container-site grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-      <SectionHeading eyebrow="West Africa" title="Custom cross-border routes, planned carefully." text="Djibril and his network can help with selected West Africa routes depending on current border, visa, transport, and security conditions." />
-      <img src={images.westAfrica} alt="Travellers planning a West Africa route" class="h-96 w-full rounded-lg object-cover shadow-xl" />
+<BaseLayout
+  title="West Africa Custom Trips | Your Mali Guides"
+  description="Plan selected West Africa cross-border routes with Djibril Kassogue and his local network. Realistic planning around current border, visa, transport, and security conditions."
+>
+  <PageHero
+    image={images.westAfrica}
+    alt="West Africa overland routes and cross-border travel planning"
+    eyebrow="West Africa"
+    title="Custom cross-border routes, planned carefully"
+    lead="Djibril and his network can help with selected West Africa routes, depending on current border, visa, transport, and security conditions."
+    waTopic="a West Africa cross-border route"
+    waLabel="Ask about a West Africa route"
+    secondaryHref="#routes"
+    secondaryLabel="See routes ↓"
+  />
+
+  <!-- Cross-border route cards -->
+  <section style="background:var(--cream);padding:clamp(4rem,8vw,6.5rem) 0;" id="routes">
+    <div class="container-site">
+      <div style="border-top:1px solid var(--sand);padding-top:34px;margin-bottom:46px;max-width:760px;">
+        <p style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:12px;color:var(--clay-text);margin:0 0 18px;">Cross-border routes</p>
+        <h2 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.018em;line-height:1.06;font-size:clamp(2rem,3.4vw,3rem);color:var(--ink);margin:0 0 16px;">Routes beyond Mali, planned with local knowledge</h2>
+        <p style="font-family:var(--font-serif);font-size:1.1rem;line-height:1.65;color:var(--text-muted);margin:0;max-width:60ch;">Feasibility badges reflect current conditions — check with Djibril before committing to any cross-border route.</p>
+      </div>
+      <div class="routes-grid">
+        {crossBorderRoutes.map((r) => (
+          <div class="route-card">
+            <div style="padding:24px 24px 22px;display:flex;flex-direction:column;flex:1;">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;">
+                <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.3rem;color:var(--ink);margin:0;">{r.title}</h3>
+                <span style={`flex-shrink:0;font-family:var(--font-ui);font-size:11px;font-weight:600;color:var(--cream);background:${r.feasColor};padding:4px 10px;border-radius:999px;`}>{r.feasibility}</span>
+              </div>
+              <p style="font-family:var(--font-serif);font-size:0.97rem;line-height:1.65;color:var(--text-body);margin:0 0 auto;">{r.body}</p>
+              <div style="padding-top:16px;margin-top:18px;border-top:1px solid var(--sand);">
+                <a href={`https://wa.me/22374482693?text=${encodeURIComponent(`Hello Djibril, I am interested in ${r.topic}. My dates are: ___. Number of travellers: ___. Passport nationality: ___. Could you advise?`)}`} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-ui);font-weight:600;font-size:13.5px;color:var(--clay-text);text-decoration:none;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+                  Ask on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
-  <section class="section-pad bg-white">
-    <div class="container-site grid gap-6 md:grid-cols-2">
-      {["Burkina Faso", "Ivory Coast", "Guinea", "Guinea-Bissau", "Broader West Africa custom routes", "Mali plus neighbouring countries"].map((place) => (
-        <article class="rounded-lg border border-slate-900/10 p-6 shadow-sm">
-          <h2 class="font-serif text-3xl font-extrabold text-indigo-deep">{place}</h2>
-          <p class="mt-3 leading-7 text-slate-700">Planning can include route design, local contacts, transport, timing, visas, border practicalities, and safety-first decisions.</p>
-        </article>
-      ))}
-    </div>
-    <div class="container-site mt-10 rounded-lg bg-indigo-deep p-8 text-white">
-      <h2 class="font-serif text-4xl font-extrabold">Safety-first route design</h2>
-      <p class="mt-4 max-w-3xl leading-8 text-white/78">West Africa routes require current information. Always check current travel advisories and entry requirements before booking international travel.</p>
-      <div class="mt-6"><WhatsAppLink label="Ask about West Africa" /></div>
+
+  <!-- Border / logistics panel -->
+  <section style="background:#fff;border-top:1px solid var(--sand);padding:clamp(4rem,8vw,6.5rem) 0;">
+    <div class="container-site" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,72px);align-items:start;">
+      <div>
+        <p style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:0.75rem;color:var(--clay-text);margin:0 0 18px;">Logistics and planning</p>
+        <h2 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.015em;line-height:1.06;font-size:clamp(2rem,3.4vw,3rem);color:var(--ink);margin:0 0 18px;">Cross-border routes need extra preparation</h2>
+        <p style="font-family:var(--font-serif);font-size:1.1rem;line-height:1.7;color:var(--text-body);margin:0 0 28px;">West Africa routes require current information. Always check current travel advisories and entry requirements before booking international travel. Djibril can advise on practical logistics, but entry requirements are always your responsibility to verify.</p>
+        <a href={`https://wa.me/22374482693?text=${encodeURIComponent("Hello Djibril, I am planning a West Africa route. My countries of interest are: ___. Dates: ___. Passport nationality: ___. Could you advise on logistics?")}`} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-ui);font-weight:600;font-size:14.5px;background:var(--clay);color:var(--cream);padding:13px 22px;border-radius:10px;text-decoration:none;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+          Ask about West Africa logistics
+        </a>
+      </div>
+      <div style="background:var(--tag-bg);border:1px solid var(--sand);border-radius:14px;padding:clamp(22px,3vw,36px);">
+        <p style="font-family:var(--font-ui);font-weight:700;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin:0 0 20px;">What to consider</p>
+        <div style="display:grid;gap:18px;">
+          {borderPoints.map((bp) => (
+            <div style="display:flex;align-items:flex-start;gap:14px;">
+              <div style="width:34px;height:34px;border-radius:50%;background:rgba(31,76,59,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <p style="font-family:var(--font-display);font-weight:600;font-size:1.05rem;color:var(--ink);margin:0 0 4px;">{bp.title}</p>
+                <p style="font-family:var(--font-serif);font-size:0.95rem;line-height:1.6;color:var(--text-muted);margin:0;">{bp.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
-  <CTASection title="Planning a West Africa route?" text="Message Djibril with your countries, dates, passport nationality, and travel style." />
+
+  <FinalCTA
+    title="Planning a West Africa route?"
+    lead="Send Djibril your countries of interest, dates, passport nationality, and travel style. He can advise what is realistic."
+    waTopic="a West Africa cross-border route"
+    waLabel="Message Djibril about West Africa"
+  />
+
 </BaseLayout>
+
+<style>
+  .routes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) {
+    .routes-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .routes-grid { grid-template-columns: 1fr; }
+    .container-site > div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

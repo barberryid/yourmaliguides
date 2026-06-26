@@ -1,0 +1,42 @@
+---
+import { site } from "@config/site";
+
+interface Props {
+  route: {
+    title: string;
+    image: string;
+    alt: string;
+    bestFor: string;
+    note: string;
+    feasibility: string;
+    feasColor: string;
+    topic: string;
+    ideaUrl: string;
+  };
+}
+
+const { route: r } = Astro.props;
+const waHref = `${site.whatsappUrl}?text=${encodeURIComponent(`Hello Djibril, I am interested in ${r.topic}. My dates are: ___. Number of travellers: ___. Could you advise what is realistic?`)}`;
+---
+
+<div class="route-card">
+  <div style="position:relative;aspect-ratio:3/2;overflow:hidden;">
+    <img src={r.image} alt={r.alt} width="540" height="360" loading="lazy" class="route-img" />
+    <div style="position:absolute;inset:0;background:var(--overlay-image-top);"></div>
+    <span style={`position:absolute;top:13px;left:13px;font-family:var(--font-ui);font-size:11.5px;font-weight:600;color:var(--cream);background:${r.feasColor};padding:5px 11px;border-radius:999px;backdrop-filter:blur(3px);`}>{r.feasibility}</span>
+  </div>
+  <div style="padding:22px 22px 24px;display:flex;flex-direction:column;flex:1;">
+    <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.4rem;letter-spacing:-0.01em;color:var(--ink);margin:0 0 10px;">{r.title}</h3>
+    <p style="font-family:var(--font-serif);font-size:0.97rem;line-height:1.55;color:var(--text-body);margin:0 0 6px;">
+      <span style="color:var(--clay-text);font-weight:600;">Best for </span>{r.bestFor}
+    </p>
+    <p style="font-family:var(--font-serif);font-size:0.97rem;line-height:1.55;color:var(--text-muted);margin:0 0 auto;">{r.note}</p>
+    <div style="display:flex;align-items:center;gap:14px;padding-top:16px;margin-top:18px;border-top:1px solid var(--sand);">
+      <a href={waHref} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-ui);font-weight:600;font-size:13.5px;color:var(--clay-text);text-decoration:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+        Ask on WhatsApp
+      </a>
+      <a href={r.ideaUrl} style="font-family:var(--font-ui);font-weight:500;font-size:13.5px;color:var(--text-muted);text-decoration:none;margin-left:auto;">Route idea →</a>
+    </div>
+  </div>
+</div>

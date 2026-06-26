@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/50-difficult-places-design-system-4bbe86f8-1038-4e4f-a14c-6179651cdec6/styles.css">
+<script src="_ds/50-difficult-places-design-system-4bbe86f8-1038-4e4f-a14c-6179651cdec6/_ds_bundle.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--cream);}
+  a{color:inherit;}
+  .ymg-route{transition:box-shadow 180ms ease,border-color 180ms ease,transform 180ms ease;}
+  .ymg-route:hover{box-shadow:var(--shadow-raised);border-color:rgba(184,88,50,0.45);transform:translateY(-3px);}
+  .ymg-route:hover .ymg-route-img{transform:scale(1.06);}
+  .ymg-gal{overflow:hidden;}
+  .ymg-gal:hover img{transform:scale(1.07);}
+  .ymg-nav a:hover{color:var(--cream)!important;}
+  .ymg-foot a:hover{color:var(--cream)!important;}
+  .ymg-faq{transition:background 160ms ease;}
+</style>
+</helmet>
+<div style="font-family:var(--font-serif);color:var(--text-body);background:var(--cream);overflow-x:hidden;">
+
+  <!-- ============ HEADER ============ -->
+  <header style="position:absolute;top:0;left:0;right:0;z-index:30;">
+    <div style="max-width:var(--content-max);margin:0 auto;padding:18px var(--gutter) 0;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="https://yourmaliguides.com/" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:var(--clay);color:var(--cream);font-family:var(--font-ui);font-weight:800;font-size:13px;letter-spacing:0.02em;border:1px solid rgba(255,255,255,0.25);">YMG</span>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:19px;letter-spacing:-0.01em;color:var(--cream);">Your Mali Guides</span>
+      </a>
+      <nav class="ymg-nav" style="display:flex;align-items:center;gap:30px;">
+        <span style="display:flex;gap:26px;font-family:var(--font-ui);font-size:14px;font-weight:500;color:rgba(244,239,228,0.82);">
+          <a href="https://yourmaliguides.com/about/" style="text-decoration:none;transition:color 160ms ease;">About Djibril</a>
+          <a href="https://yourmaliguides.com/tours/" style="text-decoration:none;transition:color 160ms ease;">Mali Tours</a>
+          <a href="https://yourmaliguides.com/west-africa/" style="text-decoration:none;transition:color 160ms ease;">West Africa</a>
+          <a href="https://yourmaliguides.com/photos/" style="text-decoration:none;transition:color 160ms ease;">Photos</a>
+          <a href="https://yourmaliguides.com/reviews/" style="text-decoration:none;transition:color 160ms ease;">Reviews</a>
+        </span>
+        <a href="{{ waMain }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-weight:600;font-size:13.5px;background:var(--clay);color:var(--cream);padding:10px 17px;border-radius:10px;text-decoration:none;border:1px solid rgba(255,255,255,0.14);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+          WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section style="position:relative;min-height:94vh;display:flex;align-items:flex-end;">
+    <div style="position:absolute;inset:0;overflow:hidden;">
+      <img src="images/village-ceremony.jpg" alt="Village elders and musicians gathered for a community ceremony in West Africa" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;">
+      <div style="position:absolute;inset:0;background:var(--overlay-hero);"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(96deg, rgba(21,32,29,0.66) 0%, rgba(21,32,29,0.24) 46%, rgba(21,32,29,0) 80%);"></div>
+    </div>
+    <div style="position:relative;width:100%;max-width:var(--content-max);margin:0 auto;padding:128px var(--gutter) 104px;">
+      <div style="max-width:780px;">
+        <div style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:12.5px;color:var(--gold);margin-bottom:22px;">Mali · West Africa · Private guiding</div>
+        <h1 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.025em;line-height:0.99;font-size:clamp(2.9rem,6vw,5.4rem);color:var(--cream);margin:0 0 24px;text-wrap:balance;">Travel the real Mali and West Africa, with someone who lives it</h1>
+        <p style="font-family:var(--font-serif);font-size:clamp(1.1rem,1.5vw,1.32rem);line-height:1.6;color:rgba(244,239,228,0.92);margin:0 0 34px;max-width:630px;">Plan a realistic private trip with <strong style="font-weight:600;color:var(--cream);">Djibril Kassogue</strong> — an official local guide who helps travellers with Bamako, heritage routes, cultural context, transport, and safety-aware planning.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px;">
+          <a href="{{ waMain }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-ui);font-weight:600;font-size:15px;background:var(--clay);color:var(--cream);padding:15px 26px;border-radius:10px;text-decoration:none;box-shadow:var(--shadow-raised);">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+            Message Djibril on WhatsApp
+          </a>
+          <a href="https://yourmaliguides.com/tours/" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-weight:600;font-size:15px;background:rgba(253,250,243,0.08);color:var(--cream);padding:15px 24px;border-radius:10px;text-decoration:none;border:1px solid rgba(244,239,228,0.35);backdrop-filter:blur(4px);">See Mali tour ideas →</a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;">
+          <sc-for list="{{ trustChips }}" as="chip" hint-placeholder-count="5">
+            <span style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-ui);font-size:12.5px;font-weight:500;color:rgba(244,239,228,0.9);background:rgba(253,250,243,0.07);border:1px solid rgba(244,239,228,0.28);padding:7px 13px;border-radius:999px;backdrop-filter:blur(4px);">
+              <span style="width:5px;height:5px;border-radius:50%;background:var(--gold);"></span>{{ chip }}
+            </span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FLOATING FIRST-MESSAGE PANEL ============ -->
+  <section style="position:relative;background:var(--cream);">
+    <div style="max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter);">
+      <div style="background:#fff;border:1px solid var(--sand);border-radius:18px;box-shadow:var(--shadow-hero-card);margin-top:-72px;position:relative;z-index:10;padding:clamp(28px,4vw,44px);display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center;">
+        <div>
+          <div style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:11.5px;color:var(--clay-text);margin-bottom:14px;">Your first message</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.015em;line-height:1.08;font-size:clamp(1.7rem,2.6vw,2.4rem);color:var(--ink);margin:0 0 16px;">You do not need a finished itinerary</h2>
+          <p style="font-family:var(--font-serif);font-size:1.08rem;line-height:1.6;color:var(--text-body);margin:0 0 26px;max-width:42ch;">Send a few practical details on WhatsApp and Djibril will tell you what is realistic, what may need adjusting, and how to plan it responsibly.</p>
+          <a href="{{ waMain }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-ui);font-weight:600;font-size:14.5px;background:var(--clay);color:var(--cream);padding:13px 22px;border-radius:10px;text-decoration:none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+            Message Djibril with these details
+          </a>
+        </div>
+        <div style="background:var(--tag-bg);border:1px solid var(--sand);border-radius:14px;padding:26px 28px;">
+          <div style="font-family:var(--font-ui);font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">What to send</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:13px 22px;">
+            <sc-for list="{{ checklist }}" as="item" hint-placeholder-count="8">
+              <div style="display:flex;align-items:flex-start;gap:9px;font-family:var(--font-serif);font-size:1rem;color:var(--text-body);">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{{ item }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED ROUTES ============ -->
+  <section style="background:var(--cream);padding:clamp(64px,8vw,104px) 0;">
+    <div style="max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter);">
+      <div style="border-top:1px solid var(--sand);padding-top:34px;margin-bottom:46px;max-width:760px;">
+        <div style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:12px;color:var(--clay-text);margin-bottom:18px;">Featured routes</div>
+        <h2 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.018em;line-height:1.06;font-size:clamp(2rem,3.4vw,3rem);color:var(--ink);margin:0 0 16px;">Private Mali trips, planned around real conditions</h2>
+        <p style="font-family:var(--font-serif);font-size:1.18rem;line-height:1.6;color:var(--text-muted);margin:0;max-width:60ch;">Choose a starting idea, then message Djibril to shape the route around your dates, budget, pace, and what is realistic right now.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        <sc-for list="{{ routes }}" as="r">
+          <div class="ymg-route" style="background:#fff;border:1px solid var(--sand);border-radius:16px;box-shadow:var(--shadow-card);overflow:hidden;display:flex;flex-direction:column;">
+            <div style="position:relative;aspect-ratio:3/2;overflow:hidden;">
+              {{ r.imgNode }}
+              <div style="position:absolute;inset:0;background:var(--overlay-image-top);"></div>
+              <span style="position:absolute;top:13px;left:13px;font-family:var(--font-ui);font-size:11.5px;font-weight:600;color:var(--cream);background:{{ r.feasColor }};padding:5px 11px;border-radius:999px;backdrop-filter:blur(3px);">{{ r.feasibility }}</span>
+            </div>
+            <div style="padding:22px 22px 24px;display:flex;flex-direction:column;flex:1;">
+              <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.4rem;letter-spacing:-0.01em;color:var(--ink);margin:0 0 12px;">{{ r.title }}</h3>
+              <p style="font-family:var(--font-serif);font-size:0.98rem;line-height:1.55;color:var(--text-body);margin:0 0 6px;"><span style="color:var(--clay-text);font-weight:600;">Best for </span>{{ r.bestFor }}</p>
+              <p style="font-family:var(--font-serif);font-size:0.98rem;line-height:1.55;color:var(--text-muted);margin:0 0 18px;">{{ r.note }}</p>
+              <div style="margin-top:auto;display:flex;align-items:center;gap:16px;padding-top:16px;border-top:1px solid var(--sand);">
+                <a href="{{ r.wa }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-ui);font-weight:600;font-size:13.5px;color:var(--clay-text);text-decoration:none;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+                  Ask on WhatsApp
+                </a>
+                <a href="{{ r.ideaUrl }}" style="font-family:var(--font-ui);font-weight:500;font-size:13.5px;color:var(--muted);text-decoration:none;margin-left:auto;">Route idea →</a>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY DJIBRIL ============ -->
+  <section style="background:#fff;border-top:1px solid var(--sand);border-bottom:1px solid var(--sand);padding:clamp(64px,8vw,104px) 0;">
+    <div style="max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter);">
+      <div style="margin-bottom:48px;max-width:720px;">
+        <div style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:12px;color:var(--clay-text);margin-bottom:18px;">Why travel with Djibril</div>
+        <h2 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.018em;line-height:1.06;font-size:clamp(2rem,3.4vw,3rem);color:var(--ink);margin:0;">Trust, context, and real help from the ground</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--sand);border:1px solid var(--sand);border-radius:16px;overflow:hidden;">
+        <sc-for list="{{ reasons }}" as="x" hint-placeholder-count="6">
+          <div style="background:#fff;padding:32px 30px;">
+            <div style="width:46px;height:46px;border-radius:50%;background:rgba(31,76,59,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:20px;" dangerouslySetInnerHTML="{{ x.icon }}"></div>
+            <h3 style="font-family:var(--font-display);font-weight:600;font-size:1.3rem;color:var(--ink);margin:0 0 10px;letter-spacing:-0.01em;">{{ x.title }}</h3>
+            <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.6;color:var(--text-muted);margin:0;">{{ x.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT / PORTRAIT ============ -->
+  <section style="background:var(--cream);padding:clamp(64px,8vw,104px) 0;">
+    <div style="max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter);display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(36px,5vw,72px);align-items:center;">
+      <div style="position:relative;">
+        <div style="border-radius:16px;overflow:hidden;border:1px solid var(--sand);box-shadow:var(--shadow-raised);aspect-ratio:4/5;">
+          <img src="https://yourmaliguides.com/images/djibril-kassogue-portrait.webp" alt="Djibril Kassogue, official local Mali guide and trip planner" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="position:absolute;bottom:-22px;right:-12px;background:#fff;border:1px solid var(--sand);border-radius:12px;box-shadow:var(--shadow-hero-card);padding:14px 18px;display:flex;align-items:center;gap:11px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--clay)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.5 0 2.91.37 4.15 1.02"/></svg>
+          <div style="font-family:var(--font-ui);line-height:1.3;"><div style="font-weight:700;font-size:13px;color:var(--ink);">Official registered</div><div style="font-size:12px;color:var(--muted);">local guide, Mali</div></div>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:12px;color:var(--clay-text);margin-bottom:18px;">Meet your guide</div>
+        <h2 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.018em;line-height:1.08;font-size:clamp(1.9rem,3.2vw,2.8rem);color:var(--ink);margin:0 0 22px;">Djibril Kassogue</h2>
+        <p style="font-family:var(--font-serif);font-size:1.16rem;line-height:1.7;color:var(--text-body);margin:0 0 18px;max-width:54ch;">Local guiding is not only about showing places. It is cultural context, route judgement, practical timing, and help when plans need to adapt. Djibril has spent years helping travellers understand Mali beyond surface-level tourism.</p>
+        <p style="font-family:var(--font-serif);font-size:1.16rem;line-height:1.7;color:var(--text-body);margin:0 0 30px;max-width:54ch;">He speaks the local languages, knows trusted contacts across the country, and — most importantly — will tell you honestly what is realistic for your dates rather than promising routes blindly.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;">
+          <sc-for list="{{ aboutTags }}" as="t" hint-placeholder-count="4">
+            <span style="font-family:var(--font-ui);font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;background:var(--tag-bg);color:var(--clay-text);border:1px solid var(--sand);">{{ t }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW PLANNING WORKS ============ -->
+  <section style="background:var(--ink);padding:clamp(64px,8vw,104px) 0;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;opacity:0.14;">
+      <img src="images/plantation-walk.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="position:relative;max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter);">
+      <div style="max-width:680px;margin-bottom:52px;">
+        <div style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:12px;color:var(--gold);margin-bottom:18px;">How planning works</div>
+        <h2 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.018em;line-height:1.06;font-size:clamp(2rem,3.4vw,3rem);color:var(--cream);margin:0;">Three simple steps to a custom trip</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+          <div style="border-top:2px solid rgba(196,154,58,0.55);padding-top:24px;">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:3rem;line-height:1;color:var(--gold);margin-bottom:18px;">{{ s.n }}</div>
+            <p style="font-family:var(--font-serif);font-size:1.18rem;line-height:1.55;color:rgba(244,239,228,0.92);margin:0;">{{ s.text }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHOTO STORY ============ -->
+  <section style="background:var(--cream);padding:clamp(64px,8vw,104px) 0;">
+    <div style="max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter);">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:38px;">
+        <div style="max-width:640px;">
+          <div style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:12px;color:var(--clay-text);margin-bottom:18px;">Photo story</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.018em;line-height:1.06;font-size:clamp(2rem,3.4vw,3rem);color:var(--ink);margin:0 0 14px;">A real look at Mali — people, routes, culture</h2>
+          <p style="font-family:var(--font-serif);font-size:1.12rem;line-height:1.6;color:var(--text-muted);margin:0;">Guiding moments, city life, river travel, textiles, and community visits. Here to build practical trust, not to sell a postcard.</p>
+        </div>
+        <a href="https://yourmaliguides.com/photos/" style="font-family:var(--font-ui);font-weight:600;font-size:14px;color:var(--clay-text);text-decoration:none;white-space:nowrap;">View full gallery →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px;">
+        <sc-for list="{{ gallery }}" as="g">
+          <div class="ymg-gal" style="border-radius:12px;overflow:hidden;border:1px solid var(--sand);grid-column:{{ g.col }};grid-row:{{ g.row }};">
+            {{ g.imgNode }}
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SAFETY ============ -->
+  <section style="background:#fff;border-top:1px solid var(--sand);padding:clamp(56px,7vw,88px) 0;">
+    <div style="max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter);display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center;">
+      <div>
+        <div style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:12px;color:var(--clay-text);margin-bottom:18px;">Safety-aware planning</div>
+        <h2 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.018em;line-height:1.08;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--ink);margin:0 0 18px;">Safety and feasibility come first</h2>
+        <p style="font-family:var(--font-serif);font-size:1.16rem;line-height:1.7;color:var(--text-body);margin:0 0 26px;max-width:50ch;">Mali travel can change quickly. Djibril does not promise routes blindly. He advises what is realistic based on current local conditions, transport, timing, border rules, and practical safety considerations.</p>
+        <a href="{{ waSafety }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-ui);font-weight:600;font-size:14.5px;background:var(--clay);color:var(--cream);padding:13px 22px;border-radius:10px;text-decoration:none;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+          Ask what is realistic for your dates
+        </a>
+      </div>
+      <div style="background:var(--tag-bg);border:1px solid var(--sand);border-radius:14px;padding:28px 30px;">
+        <div style="font-family:var(--font-ui);font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;">How routes are judged</div>
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <sc-for list="{{ safetyPoints }}" as="p" hint-placeholder-count="4">
+            <div style="display:flex;align-items:flex-start;gap:13px;">
+              <span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;background:rgba(31,76,59,0.09);display:flex;align-items:center;justify-content:center;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.5 0 2.91.37 4.15 1.02"/></svg>
+              </span>
+              <div><div style="font-family:var(--font-serif);font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.3;">{{ p.title }}</div><div style="font-family:var(--font-serif);font-size:0.95rem;color:var(--muted);line-height:1.45;margin-top:2px;">{{ p.body }}</div></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section style="background:var(--cream);padding:clamp(64px,8vw,104px) 0;">
+    <div style="max-width:920px;margin:0 auto;padding:0 var(--gutter);">
+      <div style="text-align:center;margin-bottom:46px;">
+        <div style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:12px;color:var(--clay-text);margin-bottom:18px;">Common questions</div>
+        <h2 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.018em;line-height:1.08;font-size:clamp(2rem,3.4vw,3rem);color:var(--ink);margin:0;">Planning a private Mali trip</h2>
+      </div>
+      <div style="border-top:1px solid var(--sand);">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+          <div style="border-bottom:1px solid var(--sand);">
+            <button onClick="{{ f.onToggle }}" style="width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 4px;text-align:left;font-family:var(--font-display);font-weight:600;font-size:clamp(1.15rem,1.7vw,1.4rem);color:var(--ink);letter-spacing:-0.01em;">
+              <span>{{ f.q }}</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--clay)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{ f.chevronStyle }}"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div style="{{ f.answerStyle }}">
+              <p style="font-family:var(--font-serif);font-size:1.12rem;line-height:1.7;color:var(--text-body);margin:0;padding:0 4px 26px;max-width:64ch;">{{ f.a }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section style="position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;">
+      <img src="images/masquerade-dancers.jpg" alt="A large village gathering with masquerade figures, musicians and elders welcoming visitors in West Africa" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(21,32,29,0.78) 0%, rgba(21,32,29,0.7) 100%);"></div>
+    </div>
+    <div style="position:relative;max-width:760px;margin:0 auto;padding:clamp(72px,9vw,120px) var(--gutter);text-align:center;">
+      <div style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:12px;color:var(--gold);margin-bottom:22px;">Plan with a local guide</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.02em;line-height:1.04;font-size:clamp(2.2rem,4.5vw,3.6rem);color:var(--cream);margin:0 0 22px;text-wrap:balance;">Plan a realistic private trip in Mali</h2>
+      <p style="font-family:var(--font-serif);font-size:1.2rem;line-height:1.6;color:rgba(244,239,228,0.9);margin:0 0 34px;">Send Djibril your dates, group size, and the places you hope to visit. He can advise what is practical, what may need adjustment, and how to plan the route responsibly.</p>
+      <a href="{{ waMain }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-ui);font-weight:600;font-size:16px;background:var(--clay);color:var(--cream);padding:16px 30px;border-radius:10px;text-decoration:none;box-shadow:var(--shadow-raised);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+        Message Djibril on WhatsApp
+      </a>
+      <p style="font-family:var(--font-ui);font-size:13px;color:rgba(244,239,228,0.62);margin:24px 0 0;">Dates · Group size · Places of interest · Preferred language · Travel pace</p>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="ymg-foot" style="background:var(--ink);padding:clamp(56px,7vw,80px) 0 40px;">
+    <div style="max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter);">
+      <div style="display:grid;grid-template-columns:1.6fr 1fr 1.2fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(244,239,228,0.14);">
+        <div>
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:18px;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:var(--clay);color:var(--cream);font-family:var(--font-ui);font-weight:800;font-size:13px;">YMG</span>
+            <span style="font-family:var(--font-display);font-weight:600;font-size:19px;color:var(--cream);">Your Mali Guides</span>
+          </div>
+          <p style="font-family:var(--font-serif);font-size:1.02rem;line-height:1.65;color:rgba(244,239,228,0.72);margin:0 0 22px;max-width:42ch;">Private guiding, cultural interpretation, transport help, and safety-aware route planning in Mali and selected West Africa routes — with Djibril Kassogue.</p>
+          <a href="{{ waMain }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-weight:600;font-size:13.5px;background:var(--clay);color:var(--cream);padding:11px 18px;border-radius:10px;text-decoration:none;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2 .8.6 1.4.8 1.7 1 .2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.9-.1 1.6Z"/></svg>
+            Message on WhatsApp
+          </a>
+        </div>
+        <div>
+          <div style="font-family:var(--font-ui);font-weight:700;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;">Explore</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-family:var(--font-ui);font-size:14px;color:rgba(244,239,228,0.78);">
+            <a href="https://yourmaliguides.com/about/" style="text-decoration:none;transition:color 160ms ease;">About Djibril</a>
+            <a href="https://yourmaliguides.com/tours/" style="text-decoration:none;transition:color 160ms ease;">Mali Tours</a>
+            <a href="https://yourmaliguides.com/west-africa/" style="text-decoration:none;transition:color 160ms ease;">West Africa</a>
+            <a href="https://yourmaliguides.com/photos/" style="text-decoration:none;transition:color 160ms ease;">Photos</a>
+            <a href="https://yourmaliguides.com/reviews/" style="text-decoration:none;transition:color 160ms ease;">Reviews</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-ui);font-weight:700;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-family:var(--font-ui);font-size:14px;color:rgba(244,239,228,0.78);">
+            <a href="{{ waMain }}" target="_blank" rel="noopener" style="text-decoration:none;transition:color 160ms ease;">WhatsApp: +223 74 48 26 93</a>
+            <a href="https://www.facebook.com/djibril.kassogue" target="_blank" rel="noopener" style="text-decoration:none;transition:color 160ms ease;">Facebook: Djibril Kassogue</a>
+            <a href="https://www.instagram.com/djibril_kassogue/" target="_blank" rel="noopener" style="text-decoration:none;transition:color 160ms ease;">Instagram: Djibril Kassogue</a>
+          </div>
+          <p style="font-family:var(--font-serif);font-size:0.92rem;line-height:1.55;color:rgba(244,239,228,0.5);margin:20px 0 0;">Routes depend on current local conditions, border rules, visas, transport, and practical feasibility.</p>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:26px;font-family:var(--font-ui);font-size:12.5px;color:rgba(244,239,228,0.5);">
+        <span>© 2026 Your Mali Guides. Mali and West Africa private guide services.</span>
+        <span>Always check current travel advisories before booking international travel.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { openFaq: 0 };
+
+  wa(topic) {
+    const base = "https://wa.me/22374482693?text=";
+    const msg = topic
+      ? "Hello Djibril, I am interested in " + topic + ". My dates are: _____. Number of travellers: _____. Could you advise what is realistic and safe?"
+      : "Hello Djibril, I am interested in planning a private trip in Mali. My dates are: _____. Number of travellers: _____. Places I am interested in: _____. Preferred language: _____. Could you advise what is realistic and safe?";
+    return base + encodeURIComponent(msg);
+  }
+
+  icon(svg) {
+    return { __html: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + svg + '</svg>' };
+  }
+
+  faqData() {
+    return [
+      { q: "Can I contact Djibril directly on WhatsApp?", a: "Yes. WhatsApp is the fastest way to reach Djibril. Send your dates, group size, preferred language, and the places you hope to visit, and he will reply with honest advice." },
+      { q: "Can Djibril help plan a custom Mali itinerary?", a: "Yes. Djibril can advise what is practical under current conditions and help shape a realistic private itinerary around your interests, budget level, and pace." },
+      { q: "Which places in Mali can I visit with a local guide?", a: "Bamako visits, cultural routes, and heritage towns, plus selected longer routes such as Djenne, Mopti, Dogon Country and the north when current local conditions make them realistic." },
+      { q: "Can I arrange a Bamako city tour?", a: "Yes. Bamako works well as a first step or a standalone visit, with markets, music, food, museums, neighbourhood life, and practical orientation." },
+      { q: "Can Djibril help with transport and local logistics?", a: "Yes. His support can include route planning, transport coordination, local contacts, cultural interpretation, and safety-aware logistics on the ground." },
+      { q: "What should I send before booking?", a: "Your travel dates, number of travellers, arrival city, places you want to visit, preferred language, budget level, travel pace, and any safety or timing concerns." }
+    ];
+  }
+
+  renderVals() {
+    const openFaq = this.state.openFaq;
+    const W = (t) => this.wa(t);
+    return {
+      waMain: this.wa(),
+      waSafety: this.wa("planning a trip around current safety and feasibility"),
+      btnEnter: (e) => { e.currentTarget.style.background = "var(--accent-primary-hover)"; },
+      btnLeave: (e) => { e.currentTarget.style.background = "var(--clay)"; },
+
+      trustChips: ["Official registered guide", "Real local knowledge", "Custom private trips", "References available", "Safety-aware planning"],
+
+      checklist: ["Your travel dates", "Number of travellers", "Arrival city", "Places you hope to visit", "Preferred language", "Budget level", "Travel pace", "Any safety concerns"],
+
+      routes: [
+        { title: "Bamako City and Culture", img: "https://yourmaliguides.com/images/bamako-city-culture.webp", alt: "Bamako city and culture with a local guide in Mali", bestFor: "arrival days, short stays, and first-time visitors.", note: "Markets, music, food, museums and neighbourhood life. A strong standalone option or a first step.", feasibility: "Often open", feasColor: "rgba(31,76,59,0.85)", wa: W("Bamako City and Culture"), ideaUrl: "https://yourmaliguides.com/tours/#bamako" },
+        { title: "Djenne and Mopti", img: "https://yourmaliguides.com/images/djenne-mud-mosque.webp", alt: "Djenne mud mosque and Mopti river towns in Mali", bestFor: "travellers drawn to heritage towns and river culture.", note: "Mud architecture, river life and historic markets. Advised only when conditions make it realistic.", feasibility: "Conditions permitting", feasColor: "rgba(196,154,58,0.9)", wa: W("Djenne and Mopti"), ideaUrl: "https://yourmaliguides.com/tours/#djenne-mopti" },
+        { title: "Dogon Country", img: "https://yourmaliguides.com/images/dogon-country-landscape.webp", alt: "Dogon Country cliffs and villages in Mali", bestFor: "cultural heritage travellers with flexible plans.", note: "Villages, cliffs and traditional architecture, with local interpretation when conditions allow.", feasibility: "Assessed case by case", feasColor: "rgba(196,154,58,0.9)", wa: W("Dogon Country"), ideaUrl: "https://yourmaliguides.com/tours/#dogon" },
+        { title: "Timbuktu and Desert Routes", img: "https://yourmaliguides.com/images/desert-route.webp", alt: "Timbuktu and northern desert routes in Mali", bestFor: "experienced travellers who accept that plans may change.", note: "Historic desert heritage and manuscript culture, when access is realistic. Never promised blindly.", feasibility: "Feasibility checked first", feasColor: "rgba(184,88,50,0.9)", wa: W("Timbuktu and Desert Routes"), ideaUrl: "https://yourmaliguides.com/tours/#timbuktu" },
+        { title: "Mali and Burkina Faso", img: "https://yourmaliguides.com/images/west-africa-route.webp", alt: "Cross-border travel between Mali and Burkina Faso", bestFor: "flexible travellers planning selected West Africa routes.", note: "Cross-border planning, border timing, visa considerations, transport and local contacts.", feasibility: "Conditions-based", feasColor: "rgba(196,154,58,0.9)", wa: W("Mali and Burkina Faso"), ideaUrl: "https://yourmaliguides.com/west-africa/" },
+        { title: "West Africa Custom Route", img: "images/bush-taxi.jpg", alt: "A bush taxi on a West Africa road, travellers riding along", bestFor: "travellers with specific dates, interests or countries in mind.", note: "A private route shaped around your dates, budget level, preferred pace and support needs.", feasibility: "Made for you", feasColor: "rgba(31,76,59,0.85)", wa: W("a West Africa Custom Route"), ideaUrl: "https://yourmaliguides.com/custom-trip/" }
+      ].map(r => ({ ...r, imgNode: React.createElement("img", { className: "ymg-route-img", src: r.img, alt: r.alt, style: { width: "100%", height: "100%", objectFit: "cover", transition: "transform 400ms ease" } }) })),
+
+      reasons: [
+        { icon: this.icon('<path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.5 7.2 17l.9-5.4L4.2 7.7l5.4-.8z"/>'), title: "Official local guide", body: "Djibril is an official and registered guide in Mali, helping travellers understand the country beyond surface-level tourism." },
+        { icon: this.icon('<path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>'), title: "Real local knowledge", body: "Local languages, cultural context, trusted contacts and day-to-day problem solving that make a difference on the road." },
+        { icon: this.icon('<path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 7.5-8.6 8.9a1 1 0 0 1-.8 0C6.5 19.5 3 17 3 12V6a1 1 0 0 1 .6-.9l8-3.2a1 1 0 0 1 .8 0l8 3.2A1 1 0 0 1 21 6z"/>'), title: "Safer logistics", body: "Routes planned with current local conditions, practical timing, transport realities and safety considerations in mind." },
+        { icon: this.icon('<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/>'), title: "Fairer prices", body: "A local guide reduces the stress of negotiating transport, services and visits, so you are not navigating it alone." },
+        { icon: this.icon('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>'), title: "Custom itineraries", body: "Plans built around your dates, interests, budget level, preferred language and the places you want to visit." },
+        { icon: this.icon('<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>'), title: "West Africa experience", body: "Djibril and his network can support selected routes across Mali, Burkina Faso, Ivory Coast, Guinea and nearby countries." }
+      ],
+
+      aboutTags: ["Speaks local languages", "Trusted local contacts", "Years of guiding", "West Africa network"],
+
+      steps: [
+        { n: "1", text: "Send your dates, group size, language preference, and the places you hope to visit." },
+        { n: "2", text: "Djibril checks timing, transport, current feasibility, and the route options that make sense." },
+        { n: "3", text: "You agree a private plan that fits your pace and the practical conditions on the ground." }
+      ],
+
+      safetyPoints: [
+        { title: "Current local advice", body: "Recommendations reflect what is happening now, not a fixed brochure." },
+        { title: "Routes assessed case by case", body: "Each route is judged on its own merits for your specific dates." },
+        { title: "Transport and timing checked", body: "Practical logistics are confirmed before anything is agreed." },
+        { title: "Alternative plans when needed", body: "If a route is not realistic, Djibril suggests a sensible alternative." }
+      ],
+
+      gallery: [
+        { src: "images/flag-bearer.jpg", alt: "A flag bearer leading a community welcome as travellers look on", col: "1 / span 2", row: "1 / span 2" },
+        { src: "images/girls-calabash.jpg", alt: "Two young women in indigo dress holding a calabash inside a decorated interior", col: "3", row: "1 / span 2" },
+        { src: "images/women-indigo.jpg", alt: "Two women in indigo and gold textiles against a weathered wall", col: "4", row: "1 / span 2" },
+        { src: "images/fishing-village.jpg", alt: "Aerial view of a coastal fishing village with pirogues on the sand", col: "1", row: "3" },
+        { src: "images/fishermen-nets.jpg", alt: "Fishermen hauling a long net onto the beach at the surf line", col: "2 / span 2", row: "3" },
+        { src: "images/mali-mudcloth-interior.jpg", alt: "Two travellers inside a room covered in carved bogolan mud-cloth patterns", col: "4", row: "3" }
+      ].map(g => ({ ...g, imgNode: React.createElement("img", { src: g.src, alt: g.alt, style: { width: "100%", height: "100%", objectFit: "cover", transition: "transform 400ms ease" } }) })),
+
+      faqs: this.faqData().map((f, i) => ({
+        q: f.q,
+        a: f.a,
+        onToggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i })),
+        chevronStyle: { flexShrink: 0, transition: "transform 220ms ease", transform: openFaq === i ? "rotate(180deg)" : "rotate(0deg)" },
+        answerStyle: { overflow: "hidden", maxHeight: openFaq === i ? "320px" : "0px", opacity: openFaq === i ? 1 : 0, transition: "max-height 280ms ease, opacity 200ms ease" }
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
