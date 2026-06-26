@@ -1,5 +1,8 @@
 export const images = {
   hero: "/images/mali-river-hero.webp",
+  westAfricaHero: "/images/west-africa-hero.webp",
+  aboutHero: "/images/about-djibril-hero.webp",
+  contactHero: "/images/contact-hero.webp",
   portrait: "/images/djibril-kassogue-portrait.webp",
   about: "/images/djibril-with-traveller.webp",
   bamako: "/images/bamako-city-culture.webp",

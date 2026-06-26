@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero.astro";
 import FinalCTA from "@components/FinalCTA.astro";
 import { site } from "@config/site";
+import { images } from "@data/images";
 
 const waMain = `${site.whatsappUrl}?text=${encodeURIComponent(site.whatsappMessage)}`;
 
@@ -28,17 +30,17 @@ const contactLinks = [
   description="Contact Djibril Kassogue on WhatsApp to plan a private Mali trip with practical route advice, transport help, and safety-aware planning."
 >
 
-  <!-- Page header -->
-  <section style="background:var(--cream);padding:clamp(4rem,8vw,6.5rem) 0 0;">
-    <div class="container-site" style="max-width:780px;">
-      <p style="font-family:var(--font-ui);font-weight:800;text-transform:uppercase;letter-spacing:0.18em;font-size:0.75rem;color:var(--clay-text);margin:0 0 18px;">Contact</p>
-      <h1 style="font-family:var(--font-display);font-weight:600;letter-spacing:-0.025em;line-height:1.04;font-size:clamp(2.4rem,5vw,4rem);color:var(--ink);margin:0 0 20px;text-wrap:balance;">Contact Djibril Kassogue</h1>
-      <p style="font-family:var(--font-serif);font-size:1.15rem;line-height:1.7;color:var(--text-body);margin:0;max-width:58ch;">The fastest way to reach Djibril is WhatsApp. Send a few practical details and he can advise what is realistic for your dates.</p>
-    </div>
-  </section>
+  <PageHero
+    image={images.contactHero}
+    alt="River sunset in Mali"
+    eyebrow="Contact"
+    title="Contact Djibril Kassogue"
+    lead="The fastest way to reach Djibril is WhatsApp. Send a few practical details and he can advise what is realistic for your dates."
+    imagePosition="center 50%"
+  />
 
   <!-- First-message panel (same pattern as homepage) -->
-  <section style="background:var(--cream);padding:clamp(3rem,6vw,5rem) 0 clamp(4rem,8vw,6.5rem);">
+  <section style="background:var(--cream);padding:clamp(4rem,8vw,6.5rem) 0;">
     <div class="container-site">
       <div class="first-msg-card">
         <div>

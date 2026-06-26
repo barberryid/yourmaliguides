@@ -17,7 +17,6 @@ export const site = {
     { label: "Mali Tours", href: "/tours/" },
     { label: "West Africa", href: "/west-africa/" },
     { label: "Photos", href: "/photos/" },
-    { label: "Reviews", href: "/reviews/" },
     { label: "Contact", href: "/contact/" },
   ],
 };
