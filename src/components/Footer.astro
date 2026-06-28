@@ -5,7 +5,7 @@ const waHref = `${site.whatsappUrl}?text=${encodeURIComponent(site.whatsappMessa
 ---
 
 <footer style="background:var(--ink);color:var(--text-on-dark);">
-  <div class="container-site" style="display:grid;grid-template-columns:1.6fr 1fr 1.2fr;gap:48px;padding-block:clamp(3.5rem,7vw,5rem);">
+  <div class="ymg-foot-grid container-site" style="display:grid;grid-template-columns:1.6fr 1fr 1.1fr 1.2fr;gap:48px;padding-block:clamp(3.5rem,7vw,5rem);">
     <!-- Brand -->
     <div>
       <a href="/" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:16px;">
@@ -22,6 +22,16 @@ const waHref = `${site.whatsappUrl}?text=${encodeURIComponent(site.whatsappMessa
       <p class="ymg-foot-label">Explore</p>
       <div class="ymg-foot-links" style="margin-top:16px;display:grid;gap:10px;">
         {site.mainNav.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Plan your trip -->
+    <div>
+      <p class="ymg-foot-label">Plan your trip</p>
+      <div class="ymg-foot-links" style="margin-top:16px;display:grid;gap:10px;">
+        {site.planNav.map((item) => (
           <a href={item.href}>{item.label}</a>
         ))}
       </div>
@@ -65,8 +75,14 @@ const waHref = `${site.whatsappUrl}?text=${encodeURIComponent(site.whatsappMessa
   .ymg-foot-links a:hover {
     color: var(--cream);
   }
-  @media (max-width: 767px) {
-    footer .container-site {
+  @media (max-width: 900px) {
+    .ymg-foot-grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 36px !important;
+    }
+  }
+  @media (max-width: 560px) {
+    .ymg-foot-grid {
       grid-template-columns: 1fr !important;
       gap: 32px !important;
     }

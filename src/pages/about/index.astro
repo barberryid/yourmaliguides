@@ -4,6 +4,24 @@ import PageHero from "@components/PageHero.astro";
 import FinalCTA from "@components/FinalCTA.astro";
 import { features } from "@data/content";
 import { images } from "@data/images";
+import { site } from "@config/site";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: site.guideName,
+    jobTitle: "Official registered local guide in Mali",
+    description:
+      "Official registered guide in Mali offering custom private trips, cultural tours, and West Africa route planning.",
+    image: new URL(images.portrait, site.baseUrl).toString(),
+    url: site.baseUrl + "/about/",
+    knowsLanguage: ["French", "English", "Bambara", "Fulani"],
+    worksFor: { "@type": "TravelAgency", name: site.siteName, "@id": site.baseUrl + "/#travelagency" },
+    sameAs: [site.instagramUrl, site.facebookUrl],
+  },
+};
 
 const credentials = [
   { label: "Languages", value: "French, English, Bambara, Fulani" },
@@ -23,6 +41,8 @@ const aboutTags = [
 <BaseLayout
   title="About Djibril Kassogue | Your Mali Guides"
   description="Meet Djibril Kassogue, an official registered guide in Mali for custom private trips, cultural tours, and West Africa route planning."
+  ogType="profile"
+  additionalSchema={personSchema}
 >
   <PageHero
     image={images.aboutHero}

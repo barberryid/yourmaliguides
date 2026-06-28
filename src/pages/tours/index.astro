@@ -28,11 +28,22 @@ const faqs = [
     a: "Djibril's guiding, cultural interpretation, route advice, local contacts, and safety-aware logistics. Transport, accommodation, and entry fees are separate — he can advise on costs.",
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
 ---
 
 <BaseLayout
   title="Mali Tours with a Local Guide | Your Mali Guides"
   description="Plan Bamako, Djenné, Mopti, Dogon Country, Timbuktu, and custom Mali routes with Djibril Kassogue, an official local guide."
+  additionalSchema={faqSchema}
 >
   <PageHero
     image={images.dogon}
