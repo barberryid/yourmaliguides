@@ -59,15 +59,29 @@ const navLinks = site.mainNav.filter(item => item.href !== "/");
           <span class="hidden sm:inline">Message Djibril</span>
           <span class="sm:hidden">WhatsApp</span>
         </a>
-        <button class="grid h-11 w-11 place-items-center rounded-full text-ink lg:hidden" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" style="border:1px solid var(--sand);color:var(--ink);">
-          <span class="h-0.5 w-5 bg-current shadow-[0_6px_0_current,0_-6px_0_current]"></span>
+        <button
+          class="ymg-menu-btn grid h-11 w-11 place-items-center rounded-full lg:hidden"
+          type="button"
+          data-menu-toggle
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Open menu"
+        >
+          <span class="ymg-menu-icon" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
         </button>
       </div>
     </nav>
-    <div id="mobile-menu" class="hidden border-t lg:hidden" style="background:var(--cream);border-color:var(--sand);" data-mobile-menu>
+    <div
+      id="mobile-menu"
+      class="ymg-mobile-menu lg:hidden"
+      data-mobile-menu
+      aria-hidden="true"
+    >
       <div class="container-site grid gap-1 py-4">
         {site.mainNav.map((item) => (
-          <a href={item.href} class="rounded-lg px-3 py-3 font-bold hover:bg-white" style="font-family:var(--font-ui);color:var(--ink);" aria-current={isCurrent(item.href) ? "page" : undefined}>{item.label}</a>
+          <a href={item.href} class="rounded-lg px-3 py-3 font-bold transition-colors hover:bg-white" style="font-family:var(--font-ui);color:var(--ink);" aria-current={isCurrent(item.href) ? "page" : undefined}>{item.label}</a>
         ))}
         <a href={whatsappHref} target="_blank" rel="noopener" class="btn btn-clay mt-3 w-full justify-center" aria-label="Message Djibril on WhatsApp">
           <WhatsAppIcon />
@@ -77,3 +91,67 @@ const navLinks = site.mainNav.filter(item => item.href !== "/");
     </div>
   </header>
 )}
+
+<style>
+  .ymg-menu-btn {
+    border: 1px solid var(--sand);
+    color: var(--ink);
+    background: transparent;
+    cursor: pointer;
+  }
+  .ymg-menu-btn:hover {
+    background: rgba(221, 214, 196, 0.35);
+  }
+
+  /* Three-bar icon built from three real bars — robust in Tailwind v4 */
+  .ymg-menu-icon {
+    position: relative;
+    width: 20px;
+    height: 14px;
+    display: block;
+  }
+  .ymg-menu-icon span {
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 200ms ease, opacity 200ms ease, top 200ms ease;
+  }
+  .ymg-menu-icon span:nth-child(1) { top: 0; }
+  .ymg-menu-icon span:nth-child(2) { top: 6px; }
+  .ymg-menu-icon span:nth-child(3) { top: 12px; }
+
+  /* Morph into an X when the menu is open */
+  .ymg-menu-btn[aria-expanded="true"] .ymg-menu-icon span:nth-child(1) {
+    top: 6px;
+    transform: rotate(45deg);
+  }
+  .ymg-menu-btn[aria-expanded="true"] .ymg-menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  .ymg-menu-btn[aria-expanded="true"] .ymg-menu-icon span:nth-child(3) {
+    top: 6px;
+    transform: rotate(-45deg);
+  }
+
+  /* Animated dropdown panel — hidden by default, slides down on open */
+  .ymg-mobile-menu {
+    background: var(--cream);
+    border-top: 1px solid var(--sand);
+    border-bottom: 1px solid var(--sand);
+    box-shadow: var(--shadow-raised);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 260ms ease, opacity 200ms ease, visibility 0s linear 260ms;
+  }
+  .ymg-mobile-menu.open {
+    max-height: 80vh;
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 260ms ease, opacity 200ms ease;
+  }
+</style>

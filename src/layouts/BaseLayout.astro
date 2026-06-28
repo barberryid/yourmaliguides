@@ -90,10 +90,22 @@ const travelAgencySchema = {
     <script>
       const toggle = document.querySelector("[data-menu-toggle]");
       const menu = document.querySelector("[data-mobile-menu]");
-      toggle?.addEventListener("click", () => {
-        const isOpen = toggle.getAttribute("aria-expanded") === "true";
-        toggle.setAttribute("aria-expanded", String(!isOpen));
-        menu?.classList.toggle("hidden", isOpen);
+      const setMenu = (open: boolean) => {
+        if (!toggle || !menu) return;
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        menu.classList.toggle("open", open);
+        menu.setAttribute("aria-hidden", String(!open));
+      };
+      const isOpen = () => toggle?.getAttribute("aria-expanded") === "true";
+      toggle?.addEventListener("click", () => setMenu(!isOpen()));
+      // Close when a link inside the menu is tapped
+      menu?.querySelectorAll("a").forEach((link) =>
+        link.addEventListener("click", () => setMenu(false))
+      );
+      // Close on Escape and reset when the panel loses focus
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && isOpen()) setMenu(false);
       });
     </script>
   </body>
