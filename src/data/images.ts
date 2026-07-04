@@ -13,6 +13,19 @@ export const images = {
   westAfrica: "/images/west-africa-route.webp",
   textiles: "/images/malian-textile-bogolan.webp",
   community: "/images/community-children.webp",
+  guinea: {
+    hero: "/images/guinea-03.webp",
+    gallery: [
+      { src: "/images/guinea-01.webp", alt: "Portrait of a Guinean guide smiling outdoors", caption: "Local guides on the ground" },
+      { src: "/images/guinea-02.webp", alt: "Hikers climbing a wooden ladder beside a waterfall in a Guinea canyon", caption: "Canyon and waterfall trekking" },
+      { src: "/images/guinea-03.webp", alt: "Wide multi-tier waterfall cascading over rock in the Guinean forest", caption: "Waterfalls of the Fouta Djallon" },
+      { src: "/images/guinea-04.webp", alt: "Traditional pirogue loaded with passengers and produce on a Guinean river", caption: "River life and market boats" },
+      { src: "/images/guinea-05.webp", alt: "Traditional dancers in raffia skirts performing in a Guinea village", caption: "Village dance and ceremony" },
+      { src: "/images/guinea-06.webp", alt: "Traveller squeezed through a narrow sandstone slot canyon in Guinea", caption: "Slot canyons and rock formations" },
+      { src: "/images/guinea-07.webp", alt: "Trekking group pausing on a grassy trail in the Guinean highlands", caption: "Guided highland treks" },
+      { src: "/images/guinea-08.webp", alt: "Colourful wooden fishing pirogues on the Atlantic coast near Conakry", caption: "Conakry coast and fishing villages" },
+    ],
+  },
   gallery: [
     { src: "/images/gallery-01.webp", alt: "Children smiling during a community visit in Mali", caption: "Community visits" },
     { src: "/images/gallery-02.webp", alt: "Djibril Kassogue with a traveller in Mali", caption: "Djibril with travellers" },
