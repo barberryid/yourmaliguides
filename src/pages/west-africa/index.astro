@@ -84,6 +84,38 @@ const borderPoints = [
         ))}
       </div>
       <p style="font-family:var(--font-serif);font-size:0.95rem;line-height:1.6;color:var(--text-muted);margin:28px 0 0;max-width:60ch;">Interested in a similar route? Guinea trips are feasibility-checked first — message Djibril with your dates and interests.</p>
+
+      <section class="trip-review" aria-labelledby="trip-review-title">
+        <p class="trip-review-eyebrow">Review</p>
+        <h3 id="trip-review-title">West Africa tour through five countries</h3>
+        <p class="trip-review-date">18 March 2024</p>
+
+        <div class="trip-review-language">
+          <p class="trip-review-language-label">Original review in German</p>
+          <p>Hi Djibril,</p>
+          <p>Peter here! Hope you and Bayini are doing fine....</p>
+          <p>Mauricio informed I should sent my comment for your website by E-Mail. So here it is - in German (since Mauricio did already something in English):</p>
+          <p><strong>West-Afrika-Tour durch 5 Länder:</strong></p>
+          <p>Mitte Februar bis Anfang März war ich auf einer Rundreise durch die Länder Elfenbeinküste, Liberia, Sierra Leone, Guinea und Guinea-Bissau mit Tourguide und Organisator Djibril und Fahrer Bayini.</p>
+          <p>Djibril hat die Tour komplett nach unseren Wünschen und Vorlieben zusammengestellt, beide haben uns durchgängig begleitet - nach 17 Tagen zusammen unterwegs waren wir quasi 5 Freunde.</p>
+          <p>Bayini ist ein sehr routinierter Fahrer auf allen Arten von Fahrzeugen, er steuerte uns sogar durch überfüllte Märkte (zwischen Autostaus und vielen Fußgängern). Ich habe mich in jeder Situation mit ihm als Fahrer sehr sicher gefühlt.</p>
+          <p>Djigui bringt sein Wissen um die lokalen Gegebenheiten mit ein (er weiß an jedem Ort, wo der Markt ist oder ein Restaurant - vielleicht hat er ein fotografisches Gedächtnis). Passend zu kulturellen Informationen trägt er traditionelle Kleidung, und ich mag seinen Humor und seine Fähigkeit, bei Bedarf zu improvisieren. Am wichtigsten waren für uns aber seine umfangreichen Kontakte zu Mitarbeitern an Grenzübergängen oder Botschaften; dies hat uns den jeweiligen Grenzübertritt sehr erleichtert und Zeit gespart.</p>
+          <p>Insgesamt bin ich mit der Reise und den beiden sehr zufrieden und empfehle Djibril jedem, der ähnliche Reisen in weniger touristisch erschlossene Länder unternehmen möchte!</p>
+          <p>Peter Philipp</p>
+        </div>
+
+        <div class="trip-review-language">
+          <p class="trip-review-language-label">English translation</p>
+          <p><strong>West Africa tour through 5 countries:</strong></p>
+          <p>In mid-February to early March I was on a tour through the countries of Ivory Coast, Liberia, Sierra Leone, Guinea and Guinea-Bissau with tour guide and organizer Djibril and driver Bayini.</p>
+          <p>Djibril put together the tour completely according to our wishes and preferences, both of them accompanied us throughout - after 17 days on the road together, we were basically 5 friends.</p>
+          <p>Bayini is a very experienced driver on all types of vehicles, he even steered us through crowded markets (between car traffic jams and lots of pedestrians). I felt very safe with him as a driver in every situation.</p>
+          <p>Djigui brings with him his knowledge of the local conditions (he knows where the market or a restaurant is in every place - perhaps he has a photographic memory). He wears traditional clothing to match cultural information, and I like his humor and ability to improvise when necessary. But the most important thing for us was his extensive contacts with employees at border crossings or embassies; This made crossing the border much easier for us and saved time.</p>
+          <p>Overall, I am very satisfied with the trip and the two of them and recommend Djibril to anyone who wants to take similar trips to less touristy countries!</p>
+          <p>Peter Philipp</p>
+          <p>Greetings from Frankfurt!<br />Peter</p>
+        </div>
+      </section>
     </div>
   </section>
 
@@ -188,6 +220,58 @@ const borderPoints = [
     font-weight: 600;
     color: var(--text-muted);
     padding: 10px 12px;
+  }
+  .trip-review {
+    max-width: 760px;
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding: clamp(24px, 4vw, 42px);
+    background: var(--tag-bg);
+    border: 1px solid var(--sand);
+    border-radius: 14px;
+  }
+  .trip-review-eyebrow,
+  .trip-review-language-label {
+    font-family: var(--font-ui);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 12px;
+    color: var(--clay-text);
+  }
+  .trip-review-eyebrow {
+    margin: 0 0 14px;
+  }
+  .trip-review h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    line-height: 1.1;
+    color: var(--ink);
+    margin: 0 0 10px;
+  }
+  .trip-review-date {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .trip-review-language {
+    border-top: 1px solid var(--sand);
+    margin-top: 28px;
+    padding-top: 26px;
+  }
+  .trip-review-language-label {
+    margin: 0 0 18px;
+  }
+  .trip-review-language p:not(.trip-review-language-label) {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--text-body);
+    margin: 0 0 16px;
+  }
+  .trip-review-language p:last-child {
+    margin-bottom: 0;
   }
   @media (max-width: 900px) {
     .guinea-grid { grid-template-columns: repeat(2, 1fr); }
